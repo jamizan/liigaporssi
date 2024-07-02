@@ -1,7 +1,16 @@
 import mysql.connector
 import parseData
 
-
+def DropTable():
+        db = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="1234",
+        database="liiga"
+    )
+        
+        cursor = db.cursor()
+        cursor.execute('''DROP TABLE pelaajat''')
 # Function to store statistics in MySQL
 def store_statistics_in_mysql(stats):
     # Database connection
@@ -41,6 +50,7 @@ def store_statistics_in_mysql(stats):
     db.close()
 
 def main():
+    
     stats = parseData.main()
 
     x = 0
@@ -49,6 +59,8 @@ def main():
     while x < length:
         store_statistics_in_mysql(stats[x])
         x += 1
+    
+    #DropTable()
 
 if __name__ == '__main__':
     main()
