@@ -12,7 +12,7 @@ def store_statistics_in_mysql(stats):
         database="liiga"
     )
     cursor = db.cursor()
-
+    ###sadasdasdas
     # Create table if it doesn't exist
     cursor.execute('''CREATE TABLE IF NOT EXISTS pelaajat (
                     pelaajanNimi VARCHAR(255),
