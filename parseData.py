@@ -13,7 +13,63 @@ def FindCurrentMatches():
 
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=chrome_options)
+    url = 'https://www.flashscore.com/nhl-2023-2024/results/'
+    driver.get(url)
 
+    time.sleep(5)
+
+    html = driver.page_source
+
+    driver.quit()
+
+    page = BeautifulSoup(html, 'html.parser')
+
+    matchInfo = page.find_all('div', class_='event__match event__match--withRowLink event__match--static event__match--twoLine')
+
+
+    length = len(matchInfo)
+    x = 0
+    returnData = []
+    
+    while x < length:
+        row = []
+
+        matchDate = matchInfo[x].find('div').text
+
+        eventDate = matchDate[0:5]
+
+        eventTime = matchDate[7:12]
+
+        if eventDate == '19.04':
+                    
+            matchId = matchInfo[x]['id']
+            matchId = matchId.replace('g_4_', '')
+
+            link = 'https://www.flashscore.com/match/'+ matchId +'/#/match-summary/player-statistics/0'
+
+            homeTeam = matchInfo[x].find('div', class_='event__participant event__participant--home')
+            awayTeam = matchInfo[x].find('div', class_='event__participant event__participant--away')
+
+            if homeTeam == None:
+                homeTeam = matchInfo[x].find('div', class_='event__participant event__participant--home fontExtraBold')
+            if awayTeam == None:
+                awayTeam = matchInfo[x].find('div', class_='event__participant event__participant--away fontExtraBold')
+
+            row = [matchId, link, eventDate, eventTime, homeTeam.text, awayTeam.text]
+
+            returnData.append(row)
+
+            x += 1
+        else:
+            x += 1
+        
+            
+
+    print(returnData)
+    return returnData
+
+
+    
 
 def MainScrapeFunction():
     chrome_options = Options()
@@ -62,9 +118,11 @@ def MainScrapeFunction():
     return PlayerDataByRow
 
 def main():
+    '''''''''
     PlayerDataByRow = MainScrapeFunction()
     print(PlayerDataByRow)
     return PlayerDataByRow
-
+    '''''''''
+    FindCurrentMatches()
 if __name__ == '__main__':
     main()
