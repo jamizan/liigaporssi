@@ -9,7 +9,6 @@ def DropTable():
         database="liiga",
         port='2066'
     )
-        #dsjfhskjfhs
         cursor = db.cursor()
         cursor.execute('''DROP TABLE pelaajat''')
 # Function to store statistics in MySQL
@@ -62,7 +61,7 @@ def main():
         store_statistics_in_mysql(stats[x])
         x += 1
 
-#    DropTable()
+    DropTable()
 
 if __name__ == '__main__':
     main()
