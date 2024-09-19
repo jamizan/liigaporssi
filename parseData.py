@@ -118,11 +118,11 @@ def MainScrapeFunction():
     return PlayerDataByRow
 
 def main():
-    '''''''''
+
     PlayerDataByRow = MainScrapeFunction()
     print(PlayerDataByRow)
     return PlayerDataByRow
-    '''''''''
-    FindCurrentMatches()
+
+#    FindCurrentMatches()
 if __name__ == '__main__':
     main()

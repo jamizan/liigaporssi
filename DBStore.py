@@ -3,11 +3,11 @@ import parseData
 
 def DropTable():
         db = mysql.connector.connect(
-        host="liiga.serv.gs",
-        user="root",
-        password="gbohlof2dqdp5ds1",
-        database="liiga",
-        port='2066'
+        host="195.35.59.20",
+        user="u832251837_root",
+        password="#0Nj!:oaxQn",
+        database="u832251837_liiga",
+        port='3306'
     )
         cursor = db.cursor()
         cursor.execute('''DROP TABLE pelaajat''')
@@ -15,11 +15,11 @@ def DropTable():
 def store_statistics_in_mysql(stats):
     # Database connection
     db = mysql.connector.connect(
-        host="liiga.serv.gs",
-        user="root",
-        password="gbohlof2dqdp5ds1",
-        database="liiga",
-        port='2066'
+        host="195.35.59.20",
+        user="u832251837_root",
+        password="#0Nj!:oaxQn",
+        database="u832251837_liiga",
+        port='3306'
         )
     cursor = db.cursor()
     # Create table if it doesn't exist
