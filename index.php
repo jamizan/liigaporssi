@@ -1,6 +1,14 @@
 <?php
-    
+    $servername = 'localhost';
+    $username = 'liiga';
+    $password = 'J@mi1414';
+    $dbname = 'liiga';
 
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    if ($conn->connect_error) {
+        die('Database connection failed'. $conn->connect_error);
+    }
+    echo'Connected successfully!';
 ?>
 
 <html>
