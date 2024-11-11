@@ -1,9 +1,11 @@
+import sys
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 from bs4 import BeautifulSoup
+
 
 def FindCurrentMatches():
     chrome_options = Options()

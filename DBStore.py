@@ -3,29 +3,31 @@ import parseData
 
 def DropTable():
         db = mysql.connector.connect(
-        host="195.35.59.20",
-        user="u832251837_root",
-        password="#0Nj!:oaxQn",
-        database="u832251837_liiga",
+        host="localhost",
+        user="root",
+        password="1234",
+        database="liiga",
         port='3306'
     )
         cursor = db.cursor()
-        cursor.execute('''DROP TABLE pelaajat''')
+        cursor.execute('''DROP TABLE pelaaj''')
 # Function to store statistics in MySQL
 def store_statistics_in_mysql(stats):
     # Database connection
     db = mysql.connector.connect(
-        host="195.35.59.20",
-        user="u832251837_root",
-        password="#0Nj!:oaxQn",
-        database="u832251837_liiga",
+        host="localhost",
+        user="root",
+        password="1234",
+        database="liiga",
         port='3306'
         )
     cursor = db.cursor()
     # Create table if it doesn't exist
-    cursor.execute('''CREATE TABLE IF NOT EXISTS pelaajat (
+    cursor.execute('''CREATE TABLE IF NOT EXISTS pelaaj (
+					pelaajaID int,
                     pelaajanNimi VARCHAR(255),
                     joukkue VARCHAR(255),
+                    pelipaikka VARCHAR(255),
                     maali int,
                     syotto int,
                     plusmiinus int,

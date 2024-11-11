@@ -28,7 +28,8 @@ if response.status_code == 200:
             'firstname' : firstName,
             'lastname' : lastName,
             'role' : role,
-            'jersey' : jersey
+            'jersey' : jersey,
+            'playerid' : playerid
 
         }
 
@@ -39,7 +40,7 @@ if response.status_code == 200:
 
   #  print(playerData)
 
-    with open('playerData', 'w') as json_file:
+    with open('playerData.json', 'w', encoding='utf-8') as json_file:
         json.dump(players_dict, json_file, ensure_ascii=False, indent=4)
 
     print('file created!')
