@@ -23,8 +23,8 @@ function matchNumbers(){
             $aAika = $data[$i]['start'];
             $dateOnly = explode("T", $aAika)[0];
             
-            $todayDate = date("Y-m-d"); // TÄMÄ KÄYTTÖÖN OIKEASTI
-          //  $todayDate = '2024-10-18'; // TÄMÄ VAIN DEV KÄYTÖSSÄ
+          //  $todayDate = date("Y-m-d"); // TÄMÄ KÄYTTÖÖN OIKEASTI
+            $todayDate = '2024-10-29'; // TÄMÄ VAIN DEV KÄYTÖSSÄ
 
             if ($dateOnly == $todayDate) {
 
@@ -464,7 +464,6 @@ $jsonData = readJSON();
             </div>
             <div class="player-list">
                 <div class="search-options">
-                    <form action="">
                         <select name="position" id="position">
                             <option value="every">Kaikki</option>
                             <option value="attacker">Hyökkääjä</option>
@@ -491,9 +490,8 @@ $jsonData = readJSON();
                             <option value="ASSAT">ÄSSÄT</option>
                         </select>
 
-                        <button type="submit">Valitse</button>
+                        <button id="submit">Valitse</button>
 
-                    </form>
                 </div>
                 <table class="player-table" id="player-table">
                     <tr>
@@ -522,6 +520,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         $role = $key[0]['role'];
         $goals = $key[1]['goals'];
         $assists = $key[1]['assists'];
+        $idTeamName = str_replace(['ä', 'ö', 'å'], ['a', 'o', 'a'], $key[0]['teamname']);
 
         if ($role == 'RIGHT_WING' || $role == 'LEFT_WING' || $role == 'CENTER'){
             $plusminus = $key[1]['plus'] - $key[1]['minus'];
@@ -553,10 +552,10 @@ for ($i=0; $i < count($kaikkiData); $i++) {
                 $LPPShots = $shots;
             }
         }
-    
+
         if ($role == 'A') {
             $LPP = $LPPGoals + $LPPAssists + $LPPPlusminus + $LPPBlocks + $LPPShots;
-            echo'<tr class="player-data">
+            echo'<tr class="player-data" id=';echo $idTeamName;echo'>
                         <td>';echo $key[0]['lastname'];echo'</td>
                         <td>';echo $key[0]['firstname'];echo'</td>
                         <td>';echo $key[0]['teamname'];echo'</td>
@@ -619,7 +618,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
     
         if ($role == 'A') {
             $LPP = $LPPGoals + $LPPAssists + $LPPPlusminus + $LPPBlocks + $LPPShots;
-            echo'<tr class="player-data">
+            echo'<tr class="player-data" id=';echo $idTeamName;echo'>
                         <td>';echo $key[0]['lastname'];echo'</td>
                         <td>';echo $key[0]['firstname'];echo'</td>
                         <td>';echo $key[0]['teamname'];echo'</td>
@@ -673,6 +672,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         $role = $key[0]['role'];
         $goals = $key[1]['goals'];
         $assists = $key[1]['assists'];
+        $idTeamName = str_replace(['ä', 'ö', 'å'], ['a', 'o', 'a'], $key[0]['teamname']);
 
         if ($role == 'LEFT_DEFENSEMAN' || $role == 'RIGHT_DEFENSEMAN') {
             $plusminus = $key[1]['plus'] - $key[1]['minus'];
@@ -706,7 +706,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         
         if ($role == 'D') {
             $LPP = $LPPGoals + $LPPAssists + $LPPPlusminus + $LPPBlocks + $LPPShots;
-            echo'<tr class="player-data">
+            echo'<tr class="player-data" id=';echo $idTeamName;echo'>
                         <td>';echo $key[0]['lastname'];echo'</td>
                         <td>';echo $key[0]['firstname'];echo'</td>
                         <td>';echo $key[0]['teamname'];echo'</td>
@@ -772,7 +772,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         
         if ($role == 'D') {
             $LPP = $LPPGoals + $LPPAssists + $LPPPlusminus + $LPPBlocks + $LPPShots;
-            echo'<tr class="player-data">
+            echo'<tr class="player-data" id=';echo $idTeamName;echo'>
                         <td>';echo $key[0]['lastname'];echo'</td>
                         <td>';echo $key[0]['firstname'];echo'</td>
                         <td>';echo $key[0]['teamname'];echo'</td>
@@ -826,6 +826,8 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         $role = $key[0]['role'];
         $goals = $key[1]['goals'];
         $assists = $key[1]['assists'];
+        $idTeamName = str_replace(['ä', 'ö', 'å'], ['a', 'o', 'a'], $key[0]['teamname']);
+
         
         if ($role == 'GOALIE') {
             $role = 'G';
@@ -841,7 +843,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         }
         if ($role == 'G') {
             $LPP = $LPPGoals + $LPPAssists + $LPPSaves;
-            echo'<tr class="player-data">
+            echo'<tr class="player-data" id=';echo $idTeamName;echo'>
                         <td>';echo $key[0]['lastname'];echo'</td>
                         <td>';echo $key[0]['firstname'];echo'</td>
                         <td>';echo $key[0]['teamname'];echo'</td>
@@ -866,6 +868,8 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         $role = $key[0]['role'];
         $goals = $key[1]['goals'];
         $assists = $key[1]['assists'];
+        $idTeamName = str_replace(['ä', 'ö', 'å'], ['a', 'o', 'a'], $key[0]['teamname']);
+
         if ($role == 'GOALIE') {
             $role = 'G';
             $saves = $key[1]['saves'];
@@ -881,7 +885,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         
         if ($role == 'G'){
             $LPP = $LPPGoals + $LPPAssists + $LPPSaves;
-            echo'<tr class="goalie-data">
+            echo'<tr class="goalie-data" id=';echo $idTeamName;echo'>
                         <td>';echo $key[0]['lastname'];echo'</td>
                         <td>';echo $key[0]['firstname'];echo'</td>
                         <td>';echo $key[0]['teamname'];echo'</td>
@@ -983,4 +987,144 @@ for ($i=0; $i < count($kaikkiData); $i++) {
             button.innerText = "Valitse";
         }
     }
+
+const dropdown1 = document.getElementById('position');
+const dropdown2 = document.getElementById('team');
+const submitbutton = document.getElementById('submit');
+
+function handleTeamSorting(positionValue, teamValue){
+
+    if (positionValue == 'attacker') {
+        var playerTable = document.getElementById('player-table');
+    } else if (positionValue == 'defender'){
+        var playerTable = document.getElementById('defender-table');
+    } else if (positionValue == 'goalie') {
+        var playerTable = document.getElementById('goalie-table');
+    } else if (positionValue == 'every') {
+        var playerTable = 'every';
+    }
+    
+    if (playerTable != 'every') {
+        
+        for (let i = 0; i < playerTable.rows.length; i++) {
+            
+            let row = playerTable.rows[i];
+            let rowData = [];
+            let rowId = [];
+
+
+            for (let j = 0; j < row.cells.length; j++) {
+                rowData.push(row.cells[j].textContent);
+                rowId = row.id;
+            }
+
+            hideTablesNotSelected(rowId, rowData, teamValue, positionValue)
+            
+        }
+
+
+    } else{
+        var attackerTable = document.getElementById('player-table');
+        var defenderTable = document.getElementById('defender-table');
+        var goalieTable = document.getElementById('goalie-table');
+
+        attackerTable.style.display = 'table';
+        defenderTable.style.display = 'table';
+        goalieTable.style.display = 'table';
+    }
+
+
+    function hideTablesNotSelected(rowId, rowData, teamValue, positionValue){
+        var attackerTable = document.getElementById('player-table');
+        var defenderTable = document.getElementById('defender-table');
+        var goalieTable = document.getElementById('goalie-table');
+
+        // hiding every other position that is not selected
+        if (positionValue == 'attacker') {
+            attackerTable.style.display = 'table';
+            defenderTable.style.display = 'none';
+            goalieTable.style.display = 'none';
+            visibleTable = attackerTable;
+            if (rowId) {
+                hideRowsNotSelected(visibleTable, rowId);
+            }
+
+        } else if (positionValue == 'defender') {
+            attackerTable.style.display = 'none';
+            defenderTable.style.display = 'table';
+            goalieTable.style.display = 'none';
+            visibleTable = defenderTable;
+            if (rowId) {
+                hideRowsNotSelected(visibleTable, rowId);
+            }
+        } else if (positionValue == 'goalie') {
+            attackerTable.style.display = 'none';
+            defenderTable.style.display = 'none';
+            goalieTable.style.display = 'table';
+            visibleTable = goalieTable;
+            if (rowId) {
+                hideRowsNotSelected(visibleTable, rowId);
+            }
+        } else {
+            visibleTable = 'attacker';
+            if (rowId) {
+                hideRowsNotSelected(visibleTable, rowId);
+            }
+            visibleTable = 'defender';
+            if (rowId) {
+                hideRowsNotSelected(visibleTable, rowId);
+            }
+            visibleTable = 'goalie';
+            if (rowId) {
+                hideRowsNotSelected(visibleTable, rowId);
+            }
+            console.log('everything');
+            
+        }
+        
+        
+
+        function hideRowsNotSelected(visibleTable, rowId){
+
+
+            if (visibleTable != 'every') {
+                if (visibleTable) {
+                    
+                    const rows = visibleTable.querySelectorAll('#' + rowId);
+
+                    rows.forEach(row => {
+
+                        console.log(row.id);
+                        selectionId = row.id.toUpperCase();
+
+                        if (teamValue == selectionId) {
+                            row.style.display = 'table-row';
+                            
+                        } else{
+                            row.style.display = 'none';
+                        }
+
+                    });
+                }
+                
+            }
+        }
+
+
+
+    }
+
+
+
+    
+}
+
+submitbutton.addEventListener('click', function(){
+    const positionValue = dropdown1.value;
+    const teamValue = dropdown2.value;
+
+    handleTeamSorting(positionValue, teamValue);
+});
+
+
 </script>
