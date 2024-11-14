@@ -23,7 +23,7 @@ function matchNumbers(){
             $aAika = $data[$i]['start'];
             $dateOnly = explode("T", $aAika)[0];
             
-          //  $todayDate = date("Y-m-d"); // TÄMÄ KÄYTTÖÖN OIKEASTI
+           // $todayDate = date("Y-m-d"); // TÄMÄ KÄYTTÖÖN OIKEASTI
             $todayDate = '2024-10-29'; // TÄMÄ VAIN DEV KÄYTÖSSÄ
 
             if ($dateOnly == $todayDate) {
@@ -97,8 +97,9 @@ function matchData($data){
         $blocks = 0;
         $shots = 0;
         $saves = 0;
+        $goalsAllowed = 0;
         for ($z=0; $z < count($home_team); $z++) { 
-
+            
             $playerId = $home_team[$z]['goaliePeriodStats'][$i]['playerId'];
             $assists += $home_team[$z]['goaliePeriodStats'][$i]['period']['assists'];
             $goals += $home_team[$z]['goaliePeriodStats'][$i]['period']['validGoals'];
@@ -111,10 +112,11 @@ function matchData($data){
             $alivoimaSyotto += $home_team[$z]['goaliePeriodStats'][$i]['period']['penaltykillAssists'];
             $penaltyminutes += $home_team[$z]['goaliePeriodStats'][$i]['period']['penaltyminutes'];
             $blocks += $home_team[$z]['goaliePeriodStats'][$i]['period']['blockedShots'];
-            $saves += $away_team[$z]['goaliePeriodStats'][$i]['period']['saves'];
-    }
-        $playerData['homegoalie'][$i] = ["playerid" => $playerId,"assists" => $assists, "goals" => $goals, "plus" => $plus, "minus" => $minus, "penaltyminutes" => $penaltyminutes, "timeofice" => $timeofice, "voittomaali" => $voittomaali, "alivoimamaali" => $alivoimaMaali, "alivoimasyotto" => $alivoimaSyotto, "penaltyminutes" => $penaltyminutes, "blocks" => $blocks, "saves" => $saves];
+            $saves += $home_team[$z]['goaliePeriodStats'][$i]['period']['saves'];
+            $goalsAllowed += $home_team[$z]['goaliePeriodStats'][$i]['period']['goalsAllowed'];
 
+    }
+        $playerData['homegoalie'][$i] = ["playerid" => $playerId,"assists" => $assists, "goals" => $goals, "plus" => $plus, "minus" => $minus, "penaltyminutes" => $penaltyminutes, "timeofice" => $timeofice, "voittomaali" => $voittomaali, "alivoimamaali" => $alivoimaMaali, "alivoimasyotto" => $alivoimaSyotto, "penaltyminutes" => $penaltyminutes, "blocks" => $blocks, "saves" => $saves, "goalsAllowed" => $goalsAllowed];
 
     }
 
@@ -147,8 +149,9 @@ function matchData($data){
             $penaltyminutes += $away_team[$z]['goaliePeriodStats'][$i]['period']['penaltyminutes'];
             $blocks += $away_team[$z]['goaliePeriodStats'][$i]['period']['blockedShots'];
             $saves += $away_team[$z]['goaliePeriodStats'][$i]['period']['saves'];
+            $goalsAllowed += $away_team[$z]['goaliePeriodStats'][$i]['period']['goalsAllowed'];
         }
-        $playerData['awaygoalie'][$i] = ["playerid" => $playerId,"assists" => $assists, "goals" => $goals, "plus" => $plus, "minus" => $minus, "penaltyminutes" => $penaltyminutes, "timeofice" => $timeofice, "voittomaali" => $voittomaali, "alivoimamaali" => $alivoimaMaali, "alivoimasyotto" => $alivoimaSyotto, "penaltyminutes" => $penaltyminutes, "blocks" => $blocks, "saves" => $saves];
+        $playerData['awaygoalie'][$i] = ["playerid" => $playerId,"assists" => $assists, "goals" => $goals, "plus" => $plus, "minus" => $minus, "penaltyminutes" => $penaltyminutes, "timeofice" => $timeofice, "voittomaali" => $voittomaali, "alivoimamaali" => $alivoimaMaali, "alivoimasyotto" => $alivoimaSyotto, "penaltyminutes" => $penaltyminutes, "blocks" => $blocks, "saves" => $saves, "goalsAllowed" => $goalsAllowed];
     }
 
 
@@ -220,7 +223,6 @@ function matchData($data){
         $playerData['away'][$i] = ["playerid" => $playerId,"assists" => $assists, "goals" => $goals, "plus" => $plus, "minus" => $minus, "penaltyminutes" => $penaltyminutes, "timeofice" => $timeofice, "voittomaali" => $voittomaali, "alivoimamaali" => $alivoimaMaali, "alivoimasyotto" => $alivoimaSyotto, "penaltyminutes" => $penaltyminutes, "blocks" => $blocks, "shots" => $shots];
     }
 
-
     return $playerData;
 
 }
@@ -244,7 +246,7 @@ function readJSON() {
             echo 'Error decoding JSON: ' . json_last_error_msg() . "\n";
         }
     } else {
-       // print_r($data);
+
     }
 
     return $data;
@@ -280,18 +282,21 @@ function mergeData($jsonData, $playerData){
         }
         
     }
-
+    
     for ($i=0; $i < count($playerData['homegoalie']); $i++) { 
         $playerid = $playerData['homegoalie'][$i]['playerid'];
+
         if (isset($jsonData[$playerid])) {
-            $allDataAway[$playerid] = [$jsonData[$playerid], $playerData['homegoalie'][$i]];
+            $allDataHome[$playerid] = [$jsonData[$playerid], $playerData['homegoalie'][$i]];
+
         }
+
     }
 
     for ($i=0; $i < count($playerData['awaygoalie']); $i++) { 
         $playerid = $playerData['awaygoalie'][$i]['playerid'];
         if (isset($jsonData[$playerid])) {
-            $allDataHome[$playerid] = [$jsonData[$playerid], $playerData['awaygoalie'][$i]];
+            $allDataAway[$playerid] = [$jsonData[$playerid], $playerData['awaygoalie'][$i]];
         }
     }
 
@@ -470,6 +475,8 @@ $jsonData = readJSON();
                             <th>Pelipaikka</th>
                             <th>Maalit</th>
                             <th>Syötöt</th>
+                            <th>Päästetyt maalit</th>
+                            <th>Jäähyt(min)</th>
                             <th>Torjunnat</th>
                             <th>LPP</th>
                         </tr>
@@ -516,18 +523,26 @@ $jsonData = readJSON();
 
                 </div>
                 <table class="player-table" id="player-table">
-                    <tr>
-                        <th>Sukunimi</th>
-                        <th>Etunimi</th>
-                        <th>Joukkue</th>
-                        <th>Pelipaikka</th>
-                        <th>Maalit</th>
-                        <th>Syötöt</th>
-                        <th>Plusmiinus</th>
-                        <th>Jäähyt(min)</th>
-                        <th>Blockit</th>
-                        <th>LPP</th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th colspan="11" class="middle-header">Hyökkääjät</th>
+                        </tr>
+                        <tr>
+                            <th>Sukunimi</th>
+                            <th>Etunimi</th>
+                            <th>Joukkue</th>
+                            <th>Pelipaikka</th>
+                            <th>Maalit</th>
+                            <th>Syötöt</th>
+                            <th>Plusmiinus</th>
+                            <th>Jäähyt(min)</th>
+                            <th>Blockit</th>
+                            <th>Laukaukset</th>
+                            <th>LPP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
 <?php
 
 
@@ -607,6 +622,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         $role = $key[0]['role'];
         $goals = $key[1]['goals'];
         $assists = $key[1]['assists'];
+        $idTeamName = str_replace(['ä', 'ö', 'å'], ['a', 'o', 'a'], $key[0]['teamname']);
 
         if ($role == 'RIGHT_WING' || $role == 'LEFT_WING' || $role == 'CENTER'){
             $plusminus = $key[1]['plus'] - $key[1]['minus'];
@@ -637,7 +653,6 @@ for ($i=0; $i < count($kaikkiData); $i++) {
                 $LPPShots = $shots;
             }
         }
-    
         if ($role == 'A') {
             $LPP = $LPPGoals + $LPPAssists + $LPPPlusminus + $LPPBlocks + $LPPShots;
             echo'<tr class="';echo $idTeamName;echo'" id=';echo $idTeamName;echo'>
@@ -667,20 +682,28 @@ for ($i=0; $i < count($kaikkiData); $i++) {
 
 
 ?>
+                </tbody>
                 </table>
                 <table class="defender-table" id="defender-table">
-                    <tr>
-                        <th>Sukunimi</th>
-                        <th>Etunimi</th>
-                        <th>Joukkue</th>
-                        <th>Pelipaikka</th>
-                        <th>Maalit</th>
-                        <th>Syötöt</th>
-                        <th>Plusmiinus</th>
-                        <th>Jäähyt(min)</th>
-                        <th>Blockit</th>
-                        <th>LPP</th>
-                    </tr>
+                <thead>
+                        <tr>
+                            <th colspan="11" class="middle-header">Puolustajat</th>
+                        </tr>
+                        <tr>
+                            <th>Sukunimi</th>
+                            <th>Etunimi</th>
+                            <th>Joukkue</th>
+                            <th>Pelipaikka</th>
+                            <th>Maalit</th>
+                            <th>Syötöt</th>
+                            <th>Plusmiinus</th>
+                            <th>Jäähyt(min)</th>
+                            <th>Blockit</th>
+                            <th>Laukaukset</th>
+                            <th>LPP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
 <?php
 for ($i=0; $i < count($kaikkiData); $i++) { 
@@ -761,6 +784,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         $role = $key[0]['role'];
         $goals = $key[1]['goals'];
         $assists = $key[1]['assists'];
+        $idTeamName = str_replace(['ä', 'ö', 'å'], ['a', 'o', 'a'], $key[0]['teamname']);
         
         if ($role == 'LEFT_DEFENSEMAN' || $role == 'RIGHT_DEFENSEMAN') {
             $plusminus = $key[1]['plus'] - $key[1]['minus'];
@@ -820,26 +844,36 @@ for ($i=0; $i < count($kaikkiData); $i++) {
 }
 
 ?>
-
+                </tbody>
                 </table>
 
                 <table class="goalie-table" id="goalie-table">
-                    <tr>
-                        <th>Sukunimi</th>
-                        <th>Etunimi</th>
-                        <th>Joukkue</th>
-                        <th>Pelipaikka</th>
-                        <th>Maalit</th>
-                        <th>Syötöt</th>
-                        <th>Plusmiinus</th>
-                        <th>Jäähyt(min)</th>
-                        <th>Blockit</th>
-                        <th>LPP</th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th colspan="10" class="middle-header">Maalivahdit</th>
+                        </tr>
+                        <tr>
+                            <th>Sukunimi</th>
+                            <th>Etunimi</th>
+                            <th>Joukkue</th>
+                            <th>Pelipaikka</th>
+                            <th>Maalit</th>
+                            <th>Syötöt</th>
+                            <th>Päästetyt maalit</th>
+                            <th>Jäähyt(min)</th>
+                            <th>Torjunnat</th>
+                            <th>LPP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 <?php
+
+
+
 for ($i=0; $i < count($kaikkiData); $i++) { 
     $playerData = matchData($kaikkiData[$i]);
     $mergedData = mergeData($jsonData, $playerData);
+
 
     foreach ($mergedData[0] as $key) {
         $lastName = $key[0]['lastname'];
@@ -850,8 +884,10 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         $assists = $key[1]['assists'];
         $idTeamName = str_replace(['ä', 'ö', 'å'], ['a', 'o', 'a'], $key[0]['teamname']);
 
+
         
         if ($role == 'GOALIE') {
+
             $role = 'G';
             $saves = $key[1]['saves'];
             $LPPGoals = $goals * 25;
@@ -862,6 +898,8 @@ for ($i=0; $i < count($kaikkiData); $i++) {
             $interval = floor(($saves - 1) / 5);
             $LPPSaves = $interval * 2 + 1;
             }
+            $goalsAllowed = $key[1]['goalsAllowed'];
+
         }
         if ($role == 'G') {
             $LPP = $LPPGoals + $LPPAssists + $LPPSaves;
@@ -872,6 +910,8 @@ for ($i=0; $i < count($kaikkiData); $i++) {
                         <td>';echo $role ;echo'</td>
                         <td>';echo $key[1]['goals'];echo'</td>
                         <td>';echo $key[1]['assists'];echo'</td>
+                        <td>';echo $key[1]['goalsAllowed'];echo'</td>
+                        <td>';echo $key[1]['penaltyminutes'];echo'</td>
                         <td>';echo $key[1]['saves'];echo'</td>
                         <td>';echo $LPP;echo'</td>
                         <td>
@@ -903,6 +943,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
             $interval = floor(($saves - 1) / 5);
             $LPPSaves = $interval * 2 + 1;
             }
+            $goalsAllowed = $key[1]['goalsAllowed'];
         }
         
         if ($role == 'G'){
@@ -914,6 +955,8 @@ for ($i=0; $i < count($kaikkiData); $i++) {
                         <td>';echo $role ;echo'</td>
                         <td>';echo $key[1]['goals'];echo'</td>
                         <td>';echo $key[1]['assists'];echo'</td>
+                        <td>';echo $key[1]['goalsAllowed'];echo'</td>
+                        <td>';echo $key[1]['penaltyminutes'];echo'</td>
                         <td>';echo $key[1]['saves'];echo'</td>
                         <td>';echo $LPP;echo'</td>
                         <td>
@@ -930,7 +973,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
 ?>
 
 
-
+                </tbody>
                 </table>
             </div>
         </div>
