@@ -324,10 +324,12 @@ $jsonData = readJSON();
         font-size: 2.5em;
         
     }
+    .middle-header{
+        font-size: 1.5em;
+    }
 
     .main-content{
         width: 80%;
-        height: 1000px;
         background: red;
         margin-left: 10%;
         margin-top: 0px;
@@ -335,9 +337,15 @@ $jsonData = readJSON();
 
     .team-container{
         width: 80%;
-        height: 500px;
+        height: auto;
         background: blue;
         margin-left: 10%;
+    }
+    tbody tr:nth-child(odd){
+        background-color: #d4d4d4;
+    }
+    tbody tr:nth-child(even){
+        background-color: #979998;
     }
     .chosen-table{
         width: 100%;
@@ -362,7 +370,6 @@ $jsonData = readJSON();
     }
     .player-list{
         width: 100%;
-        height: 500px;
         margin-left: 10%;
         text-align: center;
     }
@@ -370,7 +377,13 @@ $jsonData = readJSON();
         width: 80%;
         background: grey;
         text-align: center;
-        
+        border: 1px solid black;
+    }
+    table{
+        border-collapse: collapse;
+    }
+    tbody td{
+        border: 1px solid black;
     }
     .goalie-table{
         width: 80%;
@@ -400,6 +413,9 @@ $jsonData = readJSON();
                 <table class="chosen-table" id="chosen-table">
                     <thead>
                         <tr>
+                            <th colspan="11" class="middle-header">Hyökkääjät</th>
+                        </tr>
+                        <tr>
                             <th>Sukunimi</th>
                             <th>Etunimi</th>
                             <th>Joukkue</th>
@@ -421,6 +437,9 @@ $jsonData = readJSON();
                 <table class="chosen-table2" id="chosen-table2">
                     <thead>
                         <tr>
+                            <th colspan="11" class="middle-header">Puolustajat</th>
+                        </tr>
+                        <tr>
                             <th>Sukunimi</th>
                             <th>Etunimi</th>
                             <th>Joukkue</th>
@@ -441,6 +460,9 @@ $jsonData = readJSON();
                 </table>
                 <table class="chosen-table3" id="chosen-table3">
                     <thead>
+                        <tr>
+                            <th colspan="10" class="middle-header">Maalivahdit</th>
+                        </tr>
                         <tr>
                             <th>Sukunimi</th>
                             <th>Etunimi</th>
@@ -555,7 +577,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
 
         if ($role == 'A') {
             $LPP = $LPPGoals + $LPPAssists + $LPPPlusminus + $LPPBlocks + $LPPShots;
-            echo'<tr class="player-data" id=';echo $idTeamName;echo'>
+            echo'<tr class="';echo $idTeamName;echo'" id=';echo $idTeamName;echo'>
                         <td>';echo $key[0]['lastname'];echo'</td>
                         <td>';echo $key[0]['firstname'];echo'</td>
                         <td>';echo $key[0]['teamname'];echo'</td>
@@ -618,7 +640,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
     
         if ($role == 'A') {
             $LPP = $LPPGoals + $LPPAssists + $LPPPlusminus + $LPPBlocks + $LPPShots;
-            echo'<tr class="player-data" id=';echo $idTeamName;echo'>
+            echo'<tr class="';echo $idTeamName;echo'" id=';echo $idTeamName;echo'>
                         <td>';echo $key[0]['lastname'];echo'</td>
                         <td>';echo $key[0]['firstname'];echo'</td>
                         <td>';echo $key[0]['teamname'];echo'</td>
@@ -706,7 +728,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         
         if ($role == 'D') {
             $LPP = $LPPGoals + $LPPAssists + $LPPPlusminus + $LPPBlocks + $LPPShots;
-            echo'<tr class="player-data" id=';echo $idTeamName;echo'>
+            echo'<tr class="';echo $idTeamName;echo'" id=';echo $idTeamName;echo'>
                         <td>';echo $key[0]['lastname'];echo'</td>
                         <td>';echo $key[0]['firstname'];echo'</td>
                         <td>';echo $key[0]['teamname'];echo'</td>
@@ -772,7 +794,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         
         if ($role == 'D') {
             $LPP = $LPPGoals + $LPPAssists + $LPPPlusminus + $LPPBlocks + $LPPShots;
-            echo'<tr class="player-data" id=';echo $idTeamName;echo'>
+            echo'<tr class="';echo $idTeamName;echo'" id=';echo $idTeamName;echo'>
                         <td>';echo $key[0]['lastname'];echo'</td>
                         <td>';echo $key[0]['firstname'];echo'</td>
                         <td>';echo $key[0]['teamname'];echo'</td>
@@ -843,7 +865,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         }
         if ($role == 'G') {
             $LPP = $LPPGoals + $LPPAssists + $LPPSaves;
-            echo'<tr class="player-data" id=';echo $idTeamName;echo'>
+            echo'<tr class="';echo $idTeamName;echo'" id=';echo $idTeamName;echo'>
                         <td>';echo $key[0]['lastname'];echo'</td>
                         <td>';echo $key[0]['firstname'];echo'</td>
                         <td>';echo $key[0]['teamname'];echo'</td>
@@ -885,7 +907,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         
         if ($role == 'G'){
             $LPP = $LPPGoals + $LPPAssists + $LPPSaves;
-            echo'<tr class="goalie-data" id=';echo $idTeamName;echo'>
+            echo'<tr class="';echo $idTeamName;echo'" id=';echo $idTeamName;echo'>
                         <td>';echo $key[0]['lastname'];echo'</td>
                         <td>';echo $key[0]['firstname'];echo'</td>
                         <td>';echo $key[0]['teamname'];echo'</td>
@@ -992,138 +1014,344 @@ const dropdown1 = document.getElementById('position');
 const dropdown2 = document.getElementById('team');
 const submitbutton = document.getElementById('submit');
 
-function handleTeamSorting(positionValue, teamValue){
+    function handlePositionSelection(positionValue, teamValue){
 
-    if (positionValue == 'attacker') {
-        var playerTable = document.getElementById('player-table');
-    } else if (positionValue == 'defender'){
-        var playerTable = document.getElementById('defender-table');
-    } else if (positionValue == 'goalie') {
-        var playerTable = document.getElementById('goalie-table');
-    } else if (positionValue == 'every') {
-        var playerTable = 'every';
-    }
-    
-    if (playerTable != 'every') {
-        
-        for (let i = 0; i < playerTable.rows.length; i++) {
-            
-            let row = playerTable.rows[i];
-            let rowData = [];
-            let rowId = [];
-
-
-            for (let j = 0; j < row.cells.length; j++) {
-                rowData.push(row.cells[j].textContent);
-                rowId = row.id;
-            }
-
-            hideTablesNotSelected(rowId, rowData, teamValue, positionValue)
-            
-        }
-
-
-    } else{
-        var attackerTable = document.getElementById('player-table');
-        var defenderTable = document.getElementById('defender-table');
-        var goalieTable = document.getElementById('goalie-table');
-
-        attackerTable.style.display = 'table';
-        defenderTable.style.display = 'table';
-        goalieTable.style.display = 'table';
-    }
-
-
-    function hideTablesNotSelected(rowId, rowData, teamValue, positionValue){
-        var attackerTable = document.getElementById('player-table');
-        var defenderTable = document.getElementById('defender-table');
-        var goalieTable = document.getElementById('goalie-table');
-
-        // hiding every other position that is not selected
         if (positionValue == 'attacker') {
-            attackerTable.style.display = 'table';
-            defenderTable.style.display = 'none';
-            goalieTable.style.display = 'none';
-            visibleTable = attackerTable;
-            if (rowId) {
-                hideRowsNotSelected(visibleTable, rowId);
-            }
-
-        } else if (positionValue == 'defender') {
-            attackerTable.style.display = 'none';
-            defenderTable.style.display = 'table';
-            goalieTable.style.display = 'none';
-            visibleTable = defenderTable;
-            if (rowId) {
-                hideRowsNotSelected(visibleTable, rowId);
-            }
+            var playerTable = document.getElementById('player-table');
+        } else if (positionValue == 'defender'){
+            var playerTable = document.getElementById('defender-table');
         } else if (positionValue == 'goalie') {
-            attackerTable.style.display = 'none';
-            defenderTable.style.display = 'none';
-            goalieTable.style.display = 'table';
-            visibleTable = goalieTable;
-            if (rowId) {
-                hideRowsNotSelected(visibleTable, rowId);
-            }
-        } else {
-            visibleTable = 'attacker';
-            if (rowId) {
-                hideRowsNotSelected(visibleTable, rowId);
-            }
-            visibleTable = 'defender';
-            if (rowId) {
-                hideRowsNotSelected(visibleTable, rowId);
-            }
-            visibleTable = 'goalie';
-            if (rowId) {
-                hideRowsNotSelected(visibleTable, rowId);
-            }
-            console.log('everything');
-            
+            var playerTable = document.getElementById('goalie-table');
+        } else if (positionValue == 'every') {
+            var playerTable = 'every';
         }
         
-        
+        if (playerTable != 'every') {
+            
+            for (let i = 0; i < playerTable.rows.length; i++) {    
+                let row = playerTable.rows[i];
+                let rowData = [];
+                let rowId = [];
 
-        function hideRowsNotSelected(visibleTable, rowId){
-
-
-            if (visibleTable != 'every') {
-                if (visibleTable) {
-                    
-                    const rows = visibleTable.querySelectorAll('#' + rowId);
-
-                    rows.forEach(row => {
-
-                        console.log(row.id);
-                        selectionId = row.id.toUpperCase();
-
-                        if (teamValue == selectionId) {
-                            row.style.display = 'table-row';
-                            
-                        } else{
-                            row.style.display = 'none';
-                        }
-
-                    });
+                for (let j = 0; j < row.cells.length; j++) {
+                    rowData.push(row.cells[j].textContent);
+                    rowId = row.id;
                 }
+                hideTablesNotSelected(rowId, rowData, teamValue, positionValue)
                 
             }
+
+        } else{
+            var attackerTable = document.getElementById('player-table');
+            var defenderTable = document.getElementById('defender-table');
+            var goalieTable = document.getElementById('goalie-table');
+
+            attackerTable.style.display = 'table';
+            defenderTable.style.display = 'table';
+            goalieTable.style.display = 'table';
+
         }
 
 
+        function hideTablesNotSelected(rowId, rowData, teamValue, positionValue){
+            var attackerTable = document.getElementById('player-table');
+            var defenderTable = document.getElementById('defender-table');
+            var goalieTable = document.getElementById('goalie-table');
 
+            // hiding every other position that is not selected
+            if (positionValue == 'attacker') {
+                attackerTable.style.display = 'table';
+                defenderTable.style.display = 'none';
+                goalieTable.style.display = 'none';
+
+            } else if (positionValue == 'defender') {
+                attackerTable.style.display = 'none';
+                defenderTable.style.display = 'table';
+                goalieTable.style.display = 'none';
+
+            } else if (positionValue == 'goalie') {
+                attackerTable.style.display = 'none';
+                defenderTable.style.display = 'none';
+                goalieTable.style.display = 'table';
+
+            } else {
+                console.log('every position in function hideTablesNotSelected()');
+                
+            }
+            
+            
+
+            function hideRowsNotSelected(visibleTable, rowId){
+
+
+                if (visibleTable != 'every') {
+                    if (visibleTable) {
+                        
+                        const rows = visibleTable.querySelectorAll('#' + rowId);
+
+                        rows.forEach(row => {
+
+                            selectionId = row.id.toUpperCase();
+
+                            if (teamValue == selectionId) {
+                                row.style.display = 'table-row';
+                                
+                            }
+
+                        });
+                    }
+                    
+                }
+            }
+        }
+        
     }
 
+    function handleTeamSelection(positionValue, teamValue){
+        var attackerTable = document.getElementById('player-table');
+        var defenderTable = document.getElementById('defender-table');
+        var goalieTable = document.getElementById('goalie-table');
+        let rowId = '';
+        
+        // Jos joukkuevalinta on eri kuin kaikki joukkueet
+        if (teamValue != 'every') {
+            
+            hideRowsBasedOnTeam(attackerTable, defenderTable, goalieTable, rowId);
+            
+        }
+        else { // Jos joukkuevalinta on kaikki joukkueet
 
+            showAllRowsBasedOnTeam(attackerTable, defenderTable, goalieTable, rowId);
+
+        }
+
+
+        function hideRowsBasedOnTeam(attackerTable, defenderTable, goalieTable, rowId){
+            // Käy läpi kaikki rivit pöydässä
+            let lastRowId = '';
+            for (let i = 0; i < attackerTable.rows.length; i++) {    
+                let row = attackerTable.rows[i];
+                let rowData = [];
+
+                // Käy läpi kaikki rivillä olevat cellit
+                for (let j = 0; j < row.cells.length; j++) {
+                    rowData.push(row.cells[j].textContent);
+                    let rowId = row.id;
+                    
+                    if (rowId) {
+                        if (rowId == lastRowId) {
+                            continue;
+                        }
+                        else{
+                            lastRowId = rowId;
+
+                            let data = attackerTable.getElementsByClassName(rowId)
+                            let classname = JSON.stringify(data[0].className);
+                            let capsName = classname.toUpperCase().replace('"','').replace('"','');
+                            
+                            if (capsName != teamValue) {
+
+                                for (let x = 0; x < data.length; x++) {
+                                    data[x].style.display = 'none';
+                                    
+                                }
+
+                            }
+                            else{
+                                for (let x = 0; x < data.length; x++) {
+                                    data[x].style.display = 'table-row';
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            for (let i = 0; i < defenderTable.rows.length; i++) {    
+                let row = defenderTable.rows[i];
+                let rowData = [];
+
+                // Käy läpi kaikki rivillä olevat cellit
+                for (let j = 0; j < row.cells.length; j++) {
+                    rowData.push(row.cells[j].textContent);
+                    let rowId = row.id;
+                    
+                    if (rowId) {
+                        if (rowId == lastRowId) {
+                            continue;
+                        }
+                        else{
+                            lastRowId = rowId;
+
+                            let data = defenderTable.getElementsByClassName(rowId)
+                            let classname = JSON.stringify(data[0].className);
+                            let capsName = classname.toUpperCase().replace('"','').replace('"','');
+                            
+                            if (capsName != teamValue) {
+
+                                for (let x = 0; x < data.length; x++) {
+                                    data[x].style.display = 'none';
+                                    
+                                }
+
+                            }
+                            else{
+                                for (let x = 0; x < data.length; x++) {
+                                    data[x].style.display = 'table-row';
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            for (let i = 0; i < goalieTable.rows.length; i++) {    
+                let row = goalieTable.rows[i];
+                let rowData = [];
+
+                // Käy läpi kaikki rivillä olevat cellit
+                for (let j = 0; j < row.cells.length; j++) {
+                    rowData.push(row.cells[j].textContent);
+                    let rowId = row.id;
+                    
+                    if (rowId) {
+                        if (rowId == lastRowId) {
+                            continue;
+                        }
+                        else{
+                            lastRowId = rowId;
+
+                            let data = goalieTable.getElementsByClassName(rowId)
+                            let classname = JSON.stringify(data[0].className);
+                            let capsName = classname.toUpperCase().replace('"','').replace('"','');
+                            
+                            if (capsName != teamValue) {
+
+                                for (let x = 0; x < data.length; x++) {
+                                    data[x].style.display = 'none';
+                                    
+                                }
+
+                            }
+                            else{
+                                for (let x = 0; x < data.length; x++) {
+                                    data[x].style.display = 'table-row';
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
     
-}
+        function showAllRowsBasedOnTeam(attackerTable, defenderTable, goalieTable, rowId){
+            // Käy läpi kaikki rivit pöydässä
+            let lastRowId = '';
+            for (let i = 0; i < attackerTable.rows.length; i++) {    
+                let row = attackerTable.rows[i];
+                let rowData = [];
+
+                // Käy läpi kaikki rivillä olevat cellit
+                for (let j = 0; j < row.cells.length; j++) {
+                    rowData.push(row.cells[j].textContent);
+                    let rowId = row.id;
+                    
+                    if (rowId) {
+                        if (rowId == lastRowId) {
+                            continue;
+                        }
+                        else{
+                            lastRowId = rowId;
+
+                            let data = attackerTable.getElementsByClassName(rowId)
+                            let classname = JSON.stringify(data[0].className);
+                            let capsName = classname.toUpperCase().replace('"','').replace('"','');
+                            
+                            for (let x = 0; x < data.length; x++) {
+                                data[x].style.display = 'table-row';
+                                
+                            } 
+                        }
+                    }
+                }
+            }
+
+            // Käy läpi kaikki rivit pöydässä
+            lastRowId = '';
+            for (let i = 0; i < defenderTable.rows.length; i++) {    
+                let row = defenderTable.rows[i];
+                let rowData = [];
+
+                // Käy läpi kaikki rivillä olevat cellit
+                for (let j = 0; j < row.cells.length; j++) {
+                    rowData.push(row.cells[j].textContent);
+                    let rowId = row.id;
+                    
+                    if (rowId) {
+                        if (rowId == lastRowId) {
+                            continue;
+                        }
+                        else{
+                            lastRowId = rowId;
+
+                            let data = defenderTable.getElementsByClassName(rowId)
+                            let classname = JSON.stringify(data[0].className);
+                            let capsName = classname.toUpperCase().replace('"','').replace('"','');
+                            
+                            for (let x = 0; x < data.length; x++) {
+                                data[x].style.display = 'table-row';
+                                
+                            } 
+                        }
+                    }
+                }
+            }
+
+
+            lastRowId = '';
+            for (let i = 0; i < goalieTable.rows.length; i++) {    
+                let row = goalieTable.rows[i];
+                let rowData = [];
+
+                // Käy läpi kaikki rivillä olevat cellit
+                for (let j = 0; j < row.cells.length; j++) {
+                    rowData.push(row.cells[j].textContent);
+                    let rowId = row.id;
+                    
+                    if (rowId) {
+                        if (rowId == lastRowId) {
+                            continue;
+                        }
+                        else{
+                            lastRowId = rowId;
+
+                            let data = goalieTable.getElementsByClassName(rowId)
+                            let classname = JSON.stringify(data[0].className);
+                            let capsName = classname.toUpperCase().replace('"','').replace('"','');
+                            
+                            for (let x = 0; x < data.length; x++) {
+                                data[x].style.display = 'table-row';
+                                
+                            } 
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 submitbutton.addEventListener('click', function(){
     const positionValue = dropdown1.value;
     const teamValue = dropdown2.value;
 
-    handleTeamSorting(positionValue, teamValue);
+    handlePositionSelection(positionValue, teamValue);
+    handleTeamSelection(positionValue, teamValue);
+    
 });
 
 
