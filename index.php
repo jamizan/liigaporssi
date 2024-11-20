@@ -23,8 +23,8 @@ function matchNumbers(){
             $aAika = $data[$i]['start'];
             $dateOnly = explode("T", $aAika)[0];
             
-           // $todayDate = date("Y-m-d"); // TÄMÄ KÄYTTÖÖN OIKEASTI
-            $todayDate = '2024-10-29'; // TÄMÄ VAIN DEV KÄYTÖSSÄ
+            $todayDate = date("Y-m-d"); // TÄMÄ KÄYTTÖÖN OIKEASTI
+           // $todayDate = '2024-10-29'; // TÄMÄ VAIN DEV KÄYTÖSSÄ
 
             if ($dateOnly == $todayDate) {
 
@@ -317,7 +317,7 @@ $jsonData = readJSON();
         width: 80%;
         margin-left: 10%;
         text-align: center;
-        background: beige;
+        background: #f5de4c;
         margin-bottom: 0px;
 
     }
@@ -335,7 +335,7 @@ $jsonData = readJSON();
 
     .main-content{
         width: 80%;
-        background: red;
+        background-color: rgb(67, 116, 181, 0);
         margin-left: 10%;
         margin-top: 0px;
     }
@@ -354,24 +354,30 @@ $jsonData = readJSON();
     }
     .chosen-table{
         width: 100%;
-        background: green;
+        background: #518fe0;
         text-align: center;
+        border: 1px solid black;
     }
-
     .chosen-table2{
         width: 100%;
-        background: green;
+        background: #518fe0;
         text-align: center;
+        border: 1px solid black;
     }
     .chosen-table3{
         width: 100%;
-        background: green;
+        background: #518fe0;
         text-align: center;
+        border: 1px solid black;
+    }
+    .points-total th{
+        background: #f5de4c;
+        height: min-content;
     }
     .search-options{
         height: 25px;
         width: 80%;
-        background: pink;
+        background: #d4d4d4;
     }
     .player-list{
         width: 100%;
@@ -414,7 +420,7 @@ $jsonData = readJSON();
             <h1>Otsikko</h1>
         </div>
         <div class="main-content">
-            <div class="team-container">
+            <div class="team-container" id="team-container">
                 <table class="chosen-table" id="chosen-table">
                     <thead>
                         <tr>
@@ -485,9 +491,10 @@ $jsonData = readJSON();
 
                     </tbody>
                     
-                    <tr>
-                        <th>LPP yhteensä</th>
-                        <th>LPP</th>
+                    <tr class="points-total" id="points-total">
+                        <th colspan="9" style="text-align: right;">LPP yhteensä</th>
+                        <th class="LPPCounted" id="LPPCounted">0</th>
+                        <th></th>
                     </tr>
                 </table>
             </div>
@@ -603,7 +610,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
                         <td>';echo $key[1]['penaltyminutes'];echo'</td>
                         <td>';echo $key[1]['blocks'];echo'</td>
                         <td>';echo $key[1]['shots'];echo'</td>
-                        <td>';echo $LPP;echo'</td>
+                        <td class="LPP" id="LPP">';echo $LPP;echo'</td>
                         <td>
                             <button onclick="valitse(this)">Valitse</button>
                         </td>
@@ -666,7 +673,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
                         <td>';echo $key[1]['penaltyminutes'];echo'</td>
                         <td>';echo $key[1]['blocks'];echo'</td>
                         <td>';echo $key[1]['shots'];echo'</td>
-                        <td>';echo $LPP;echo'</td>
+                        <td class="LPP" id="LPP">';echo $LPP;echo'</td>
                         <td>
                             <button onclick="valitse(this)">Valitse</button>
                         </td>
@@ -762,7 +769,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
                         <td>';echo $key[1]['penaltyminutes'];echo'</td>
                         <td>';echo $key[1]['blocks'];echo'</td>
                         <td>';echo $key[1]['shots'];echo'</td>
-                        <td>';echo $LPP;echo'</td>
+                        <td class="LPP" id="LPP">';echo $LPP;echo'</td>
                         <td>
                             <button onclick="valitse2(this)">Valitse</button>
                         </td>
@@ -829,7 +836,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
                         <td>';echo $key[1]['penaltyminutes'];echo'</td>
                         <td>';echo $key[1]['blocks'];echo'</td>
                         <td>';echo $key[1]['shots'];echo'</td>
-                        <td>';echo $LPP;echo'</td>
+                        <td class="LPP" id="LPP">';echo $LPP;echo'</td>
                         <td>
                             <button onclick="valitse2(this)">Valitse</button>
                         </td>
@@ -913,7 +920,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
                         <td>';echo $key[1]['goalsAllowed'];echo'</td>
                         <td>';echo $key[1]['penaltyminutes'];echo'</td>
                         <td>';echo $key[1]['saves'];echo'</td>
-                        <td>';echo $LPP;echo'</td>
+                        <td class="LPP" id="LPP">';echo $LPP;echo'</td>
                         <td>
                             <button onclick="valitse3(this)">Valitse</button>
                         </td>
@@ -958,7 +965,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
                         <td>';echo $key[1]['goalsAllowed'];echo'</td>
                         <td>';echo $key[1]['penaltyminutes'];echo'</td>
                         <td>';echo $key[1]['saves'];echo'</td>
-                        <td>';echo $LPP;echo'</td>
+                        <td class="LPP" id="LPP">';echo $LPP;echo'</td>
                         <td>
                             <button onclick="valitse3(this)">Valitse</button>
                         </td>
@@ -987,70 +994,194 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         // Find the row that the button is in
         var row = button.parentNode.parentNode;
 
-        // Check if the button text is "Valitse" (meaning move to chosen table)
-        if (button.innerText === "Valitse") {
-            // Move the row to the chosen-table
-            var chosenTableBody = document.getElementById('chosen-table').getElementsByTagName('tbody')[0];
-            chosenTableBody.appendChild(row);
-            
-            // Change the button text to "Peruuta"
-            button.innerText = "Peruuta";
+        let elemCount = countElements();
 
-        } else {
-            // Move the row back to the player-table
-            var playerTableBody = document.getElementById('player-table').getElementsByTagName('tbody')[0];
-            playerTableBody.appendChild(row);
-            
-            // Change the button text back to "Valitse"
-            button.innerText = "Valitse";
+        if (elemCount < 3) {
+            // Check if the button text is "Valitse" (meaning move to chosen table)
+            if (button.innerText === "Valitse") {
+                // Move the row to the chosen-table
+                var chosenTableBody = document.getElementById('chosen-table').getElementsByTagName('tbody')[0];
+                chosenTableBody.appendChild(row);
+                
+                // Change the button text to "Peruuta"
+                button.innerText = "Peruuta";
+
+                let elemCount = countElements();
+
+
+
+            } else {
+                // Move the row back to the player-table
+                var playerTableBody = document.getElementById('player-table').getElementsByTagName('tbody')[0];
+                playerTableBody.appendChild(row);
+                
+                // Change the button text back to "Valitse"
+                button.innerText = "Valitse";
+            }
+        } else{
+            if (button.innerText != 'Valitse') {
+                
+                var playerTableBody = document.getElementById('player-table').getElementsByTagName('tbody')[0];
+                playerTableBody.appendChild(row);
+                
+                // Change the button text back to "Valitse"
+                button.innerText = "Valitse";
+            }
         }
+    }
+
+    function countElements(){
+        let table = document.getElementById('chosen-table');
+        let tableBody = table.getElementsByTagName('tbody')[0];
+        let elems = tableBody.getElementsByTagName('tr');
+        countPoints();
+
+        return elems.length;
     }
 
     // Function to move or return a row depending on the button state
     function valitse2(button) {
         // Find the row that the button is in
         var row = button.parentNode.parentNode;
+        let elemCount = countElements2();
+        
 
-        // Check if the button text is "Valitse" (meaning move to chosen table)
-        if (button.innerText === "Valitse") {
-            // Move the row to the chosen-table
-            var chosenTableBody = document.getElementById('chosen-table2').getElementsByTagName('tbody')[0];
-            chosenTableBody.appendChild(row);
-            
-            // Change the button text to "Peruuta"
-            button.innerText = "Peruuta";
+        if (elemCount < 2) {
 
-        } else {
-            // Move the row back to the player-table
-            var playerTableBody2 = document.getElementById('defender-table').getElementsByTagName('tbody')[0];
-            playerTableBody2.appendChild(row);
-            
-            // Change the button text back to "Valitse"
-            button.innerText = "Valitse";
+            // Check if the button text is "Valitse" (meaning move to chosen table)
+            if (button.innerText === "Valitse") {
+                // Move the row to the chosen-table
+                var chosenTableBody = document.getElementById('chosen-table2').getElementsByTagName('tbody')[0];
+                chosenTableBody.appendChild(row);
+                
+                // Change the button text to "Peruuta"
+                button.innerText = "Peruuta";
+
+                let elemCount = countElements();
+
+            } else {
+                // Move the row back to the player-table
+                var playerTableBody2 = document.getElementById('defender-table').getElementsByTagName('tbody')[0];
+                playerTableBody2.appendChild(row);
+                
+                // Change the button text back to "Valitse"
+                button.innerText = "Valitse";
+            }
+        } else{
+            if (button.innerText != 'Valitse') {
+
+                var playerTableBody2 = document.getElementById('defender-table').getElementsByTagName('tbody')[0];
+                playerTableBody2.appendChild(row);
+                
+                // Change the button text back to "Valitse"
+                button.innerText = "Valitse";
+            }
         }
+    }
+
+    function countElements2(){
+        let table = document.getElementById('chosen-table2');
+        let tableBody = table.getElementsByTagName('tbody')[0];
+        let elems = tableBody.getElementsByTagName('tr');
+
+        countPoints();
+        return elems.length;
     }
 
     function valitse3(button) {
         // Find the row that the button is in
         var row = button.parentNode.parentNode;
+        let elemCount = countElements3();
 
-        // Check if the button text is "Valitse" (meaning move to chosen table)
-        if (button.innerText === "Valitse") {
-            // Move the row to the chosen-table
-            var chosenTableBody = document.getElementById('chosen-table3').getElementsByTagName('tbody')[0];
-            chosenTableBody.appendChild(row);
-            
-            // Change the button text to "Peruuta"
-            button.innerText = "Peruuta";
+        if (elemCount < 1) {
+   
+            // Check if the button text is "Valitse" (meaning move to chosen table)
+            if (button.innerText === "Valitse") {
+                // Move the row to the chosen-table
+                var chosenTableBody = document.getElementById('chosen-table3').getElementsByTagName('tbody')[0];
+                chosenTableBody.appendChild(row);
+                
+                // Change the button text to "Peruuta"
+                button.innerText = "Peruuta";
 
-        } else {
-            // Move the row back to the player-table
-            var playerTableBody2 = document.getElementById('goalie-table').getElementsByTagName('tbody')[0];
-            playerTableBody2.appendChild(row);
-            
-            // Change the button text back to "Valitse"
-            button.innerText = "Valitse";
+                let elemCount = countElements();
+
+            } else {
+                // Move the row back to the player-table
+                var playerTableBody2 = document.getElementById('goalie-table').getElementsByTagName('tbody')[0];
+                playerTableBody2.appendChild(row);
+                
+                // Change the button text back to "Valitse"
+                button.innerText = "Valitse";
+            }
+        } else{
+            if (button.innerText != 'Valitse') {
+
+                var playerTableBody2 = document.getElementById('goalie-table').getElementsByTagName('tbody')[0];
+                playerTableBody2.appendChild(row);
+                
+                // Change the button text back to "Valitse"
+                button.innerText = "Valitse";
+                
+            }
         }
+    }
+
+    function countElements3(){
+        let table = document.getElementById('chosen-table3');
+        let tableBody = table.getElementsByTagName('tbody')[0];
+        let elems = tableBody.getElementsByTagName('tr');
+
+        countPoints();
+        return elems.length;
+    }
+
+    function countPoints(){
+        let o = '';
+        let num = 0;
+
+        let table = document.getElementById('chosen-table');
+        let tableBody = table.getElementsByTagName('tbody')[0];
+        let elems = tableBody.getElementsByTagName('tr');
+
+        let table2 = document.getElementById('chosen-table2');
+        let tableBody2 = table2.getElementsByTagName('tbody')[0];
+        let elems2 = tableBody2.getElementsByTagName('tr');
+
+        let table3 = document.getElementById('chosen-table3');
+        let tableBody3 = table3.getElementsByTagName('tbody')[0];
+        let elems3 = tableBody3.getElementsByTagName('tr');
+
+
+        for (let i = 0; i < elems.length; i++) {
+            o = elems[i].getElementsByTagName('td')[10].innerHTML;
+            console.log('Attacker LPP = ', o);
+            
+            num += Number(o);
+        }
+
+        for (let i2 = 0; i2 < elems2.length; i2++) {
+            o = elems2[i2].getElementsByTagName('td')[10].innerHTML;
+            console.log('Defender LPP = ', o);
+            
+            num += Number(o);
+        }
+
+        for (let i3 = 0; i3 < elems3.length; i3++) {
+            
+            o = elems3[i3].getElementsByTagName('td')[9].innerHTML;
+            console.log('Goalie LPP = ', o);
+
+            num += Number(o);
+
+            
+        }
+        
+        console.log(num);
+        
+        document.getElementById('LPPCounted').innerHTML = num;
+        
+        
     }
 
 const dropdown1 = document.getElementById('position');
@@ -1175,7 +1306,7 @@ const submitbutton = document.getElementById('submit');
             for (let i = 0; i < attackerTable.rows.length; i++) {    
                 let row = attackerTable.rows[i];
                 let rowData = [];
-
+                
                 // Käy läpi kaikki rivillä olevat cellit
                 for (let j = 0; j < row.cells.length; j++) {
                     rowData.push(row.cells[j].textContent);
@@ -1191,6 +1322,8 @@ const submitbutton = document.getElementById('submit');
                             let data = attackerTable.getElementsByClassName(rowId)
                             let classname = JSON.stringify(data[0].className);
                             let capsName = classname.toUpperCase().replace('"','').replace('"','');
+                    
+                            capsName = capsName.replaceAll('Ä', 'A');                       
                             
                             if (capsName != teamValue) {
 
@@ -1230,6 +1363,8 @@ const submitbutton = document.getElementById('submit');
                             let data = defenderTable.getElementsByClassName(rowId)
                             let classname = JSON.stringify(data[0].className);
                             let capsName = classname.toUpperCase().replace('"','').replace('"','');
+
+                            capsName = capsName.replaceAll('Ä', 'A'); 
                             
                             if (capsName != teamValue) {
 
@@ -1270,6 +1405,8 @@ const submitbutton = document.getElementById('submit');
                             let data = goalieTable.getElementsByClassName(rowId)
                             let classname = JSON.stringify(data[0].className);
                             let capsName = classname.toUpperCase().replace('"','').replace('"','');
+
+                            capsName = capsName.replaceAll('Ä', 'A'); 
                             
                             if (capsName != teamValue) {
 
@@ -1314,6 +1451,8 @@ const submitbutton = document.getElementById('submit');
                             let data = attackerTable.getElementsByClassName(rowId)
                             let classname = JSON.stringify(data[0].className);
                             let capsName = classname.toUpperCase().replace('"','').replace('"','');
+
+                            capsName = capsName.replaceAll('Ä', 'A'); 
                             
                             for (let x = 0; x < data.length; x++) {
                                 data[x].style.display = 'table-row';
@@ -1345,6 +1484,8 @@ const submitbutton = document.getElementById('submit');
                             let data = defenderTable.getElementsByClassName(rowId)
                             let classname = JSON.stringify(data[0].className);
                             let capsName = classname.toUpperCase().replace('"','').replace('"','');
+
+                            capsName = capsName.replaceAll('Ä', 'A'); 
                             
                             for (let x = 0; x < data.length; x++) {
                                 data[x].style.display = 'table-row';
@@ -1376,6 +1517,8 @@ const submitbutton = document.getElementById('submit');
                             let data = goalieTable.getElementsByClassName(rowId)
                             let classname = JSON.stringify(data[0].className);
                             let capsName = classname.toUpperCase().replace('"','').replace('"','');
+
+                            capsName = capsName.replaceAll('Ä', 'A'); 
                             
                             for (let x = 0; x < data.length; x++) {
                                 data[x].style.display = 'table-row';
