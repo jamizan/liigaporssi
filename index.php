@@ -23,8 +23,8 @@ function matchNumbers(){
             $aAika = $data[$i]['start'];
             $dateOnly = explode("T", $aAika)[0];
             
-            $todayDate = date("Y-m-d"); // TÄMÄ KÄYTTÖÖN OIKEASTI
-           // $todayDate = '2024-10-29'; // TÄMÄ VAIN DEV KÄYTÖSSÄ
+           // $todayDate = date("Y-m-d"); // TÄMÄ KÄYTTÖÖN OIKEASTI
+            $todayDate = '2024-12-04'; // TÄMÄ VAIN DEV KÄYTÖSSÄ
 
             if ($dateOnly == $todayDate) {
 
@@ -567,22 +567,26 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         $idTeamName = str_replace(['ä', 'ö', 'å'], ['a', 'o', 'a'], $key[0]['teamname']);
 
         if ($role == 'RIGHT_WING' || $role == 'LEFT_WING' || $role == 'CENTER'){
-            $plusminus = $key[1]['plus'] - $key[1]['minus'];
+            $plus = $key[1]['plus'];
+            $minus = $key[1]['minus'];
             $blocks = $key[1]['blocks'];
             $shots = $key[1]['shots'];
 
             $role = 'A';
             $LPPGoals = $goals * 7;
             $LPPAssists = $assists * 4;
-            if ($plusminus > 0) {
-                $LPPPlusminus = $plusminus * 2;
+
+            if ($plus > 0) {
+                $LPPPlus = $plus * 2;
+            } else{
+                $LPPPlus = 0;
             }
-            elseif ($plusminus < 0) {
-                $LPPPlusminus = $plusminus;
+            if ($minus >= 0){
+                $LPPminus = $minus;
+            } else{
+                $LPPminus = 0;
             }
-            else {
-                $LPPPlusminus = 0;
-            }
+
             $LPPBlocks = $blocks;
             if ($shots != 0){
                 if ($shots % 2 == 0) {
@@ -598,7 +602,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         }
 
         if ($role == 'A') {
-            $LPP = $LPPGoals + $LPPAssists + $LPPPlusminus + $LPPBlocks + $LPPShots;
+            $LPP = $LPPGoals + $LPPAssists + ($LPPPlus - $LPPminus) + $LPPBlocks + $LPPShots;
             echo'<tr class="';echo $idTeamName;echo'" id=';echo $idTeamName;echo'>
                         <td>';echo $key[0]['lastname'];echo'</td>
                         <td>';echo $key[0]['firstname'];echo'</td>
@@ -606,7 +610,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
                         <td>';echo $role ;echo'</td>
                         <td>';echo $key[1]['goals'];echo'</td>
                         <td>';echo $key[1]['assists'];echo'</td>
-                        <td>';echo $key[1]['plus'] - $key[1]['minus'];echo'</td>
+                        <td>';echo $LPPPlus - $LPPminus; echo'</td>
                         <td>';echo $key[1]['penaltyminutes'];echo'</td>
                         <td>';echo $key[1]['blocks'];echo'</td>
                         <td>';echo $key[1]['shots'];echo'</td>
@@ -632,21 +636,25 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         $idTeamName = str_replace(['ä', 'ö', 'å'], ['a', 'o', 'a'], $key[0]['teamname']);
 
         if ($role == 'RIGHT_WING' || $role == 'LEFT_WING' || $role == 'CENTER'){
-            $plusminus = $key[1]['plus'] - $key[1]['minus'];
+            $plus = $key[1]['plus'];
+            $minus = $key[1]['minus'];
             $blocks = $key[1]['blocks'];
             $shots = $key[1]['shots'];
             $role = 'A';
             $LPPGoals = $goals * 7;
             $LPPAssists = $assists * 4;
-            if ($plusminus > 0) {
-                $LPPPlusminus = $plusminus * 2;
+
+            if ($plus > 0) {
+                $LPPPlus = $plus * 2;
+            } else{
+                $LPPPlus = 0;
             }
-            elseif ($plusminus < 0) {
-                $LPPPlusminus = $plusminus;
+            if ($minus >= 0){
+                $LPPminus = $minus;
+            } else{
+                $LPPminus = 0;
             }
-            else {
-                $LPPPlusminus = 0;
-            }
+           
             $LPPBlocks = $blocks;
             if ($shots != 0){
                 if ($shots % 2 == 0) {
@@ -661,7 +669,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
             }
         }
         if ($role == 'A') {
-            $LPP = $LPPGoals + $LPPAssists + $LPPPlusminus + $LPPBlocks + $LPPShots;
+            $LPP = $LPPGoals + $LPPAssists + ($LPPPlus - $LPPminus) + $LPPBlocks + $LPPShots;
             echo'<tr class="';echo $idTeamName;echo'" id=';echo $idTeamName;echo'>
                         <td>';echo $key[0]['lastname'];echo'</td>
                         <td>';echo $key[0]['firstname'];echo'</td>
@@ -669,7 +677,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
                         <td>';echo $role ;echo'</td>
                         <td>';echo $key[1]['goals'];echo'</td>
                         <td>';echo $key[1]['assists'];echo'</td>
-                        <td>';echo $key[1]['plus'] - $key[1]['minus'];echo'</td>
+                        <td>';echo $LPPPlus - $LPPminus;echo'</td>
                         <td>';echo $key[1]['penaltyminutes'];echo'</td>
                         <td>';echo $key[1]['blocks'];echo'</td>
                         <td>';echo $key[1]['shots'];echo'</td>
@@ -686,8 +694,6 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         }
     }
 }
-
-
 ?>
                 </tbody>
                 </table>
@@ -727,20 +733,22 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         $idTeamName = str_replace(['ä', 'ö', 'å'], ['a', 'o', 'a'], $key[0]['teamname']);
 
         if ($role == 'LEFT_DEFENSEMAN' || $role == 'RIGHT_DEFENSEMAN') {
-            $plusminus = $key[1]['plus'] - $key[1]['minus'];
+            $plus = $key[1]['plus'];
+            $minus = $key[1]['minus'];
             $blocks = $key[1]['blocks'];
             $shots = $key[1]['shots'];
             $role = 'D';
             $LPPGoals = $goals * 9;
             $LPPAssists = $assists * 6;
-            if ($plusminus > 0) {
-                $LPPPlusminus = $plusminus * 3;
+            if ($plus > 0) {
+                $LPPPlus = $plus * 3;
+            } else{
+                $LPPPlus = 0;
             }
-            elseif ($plusminus < 0) {
-                $LPPPlusminus = $plusminus * 2;
-            }
-            else {
-                $LPPPlusminus = 0;
+            if ($minus > 0){
+                $LPPminus = $minus * 2;
+            } else{
+                $LPPminus = 0;
             }
             $LPPBlocks = $blocks;
             if ($shots != 0){
@@ -757,7 +765,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         }
         
         if ($role == 'D') {
-            $LPP = $LPPGoals + $LPPAssists + $LPPPlusminus + $LPPBlocks + $LPPShots;
+            $LPP = $LPPGoals + $LPPAssists + ($LPPPlus - $LPPminus) + $LPPBlocks + $LPPShots;
             echo'<tr class="';echo $idTeamName;echo'" id=';echo $idTeamName;echo'>
                         <td>';echo $key[0]['lastname'];echo'</td>
                         <td>';echo $key[0]['firstname'];echo'</td>
@@ -765,7 +773,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
                         <td>';echo $role ;echo'</td>
                         <td>';echo $key[1]['goals'];echo'</td>
                         <td>';echo $key[1]['assists'];echo'</td>
-                        <td>';echo $key[1]['plus'] - $key[1]['minus'];echo'</td>
+                        <td>';echo $LPPPlus - $LPPminus;echo'</td>
                         <td>';echo $key[1]['penaltyminutes'];echo'</td>
                         <td>';echo $key[1]['blocks'];echo'</td>
                         <td>';echo $key[1]['shots'];echo'</td>
@@ -794,20 +802,22 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         $idTeamName = str_replace(['ä', 'ö', 'å'], ['a', 'o', 'a'], $key[0]['teamname']);
         
         if ($role == 'LEFT_DEFENSEMAN' || $role == 'RIGHT_DEFENSEMAN') {
-            $plusminus = $key[1]['plus'] - $key[1]['minus'];
+            $plus = $key[1]['plus'];
+            $minus = $key[1]['minus'];
             $blocks = $key[1]['blocks'];
             $shots = $key[1]['shots'];
             $role = 'D';
             $LPPGoals = $goals * 9;
             $LPPAssists = $assists * 6;
-            if ($plusminus > 0) {
-                $LPPPlusminus = $plusminus * 3;
+            if ($plus > 0) {
+                $LPPPlus = $plus * 3;
+            } else{
+                $LPPPlus = 0;
             }
-            elseif ($plusminus < 0) {
-                $LPPPlusminus = $plusminus * 2;
-            }
-            else {
-                $LPPPlusminus = 0;
+            if ($minus >= 0){
+                $LPPminus = $minus * 2;
+            } else{
+                $LPPminus = 0;
             }
             $LPPBlocks = $blocks;
             if ($shots != 0){
@@ -824,7 +834,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
         }
         
         if ($role == 'D') {
-            $LPP = $LPPGoals + $LPPAssists + $LPPPlusminus + $LPPBlocks + $LPPShots;
+            $LPP = $LPPGoals + $LPPAssists + ($LPPPlus - $LPPminus) + $LPPBlocks + $LPPShots;
             echo'<tr class="';echo $idTeamName;echo'" id=';echo $idTeamName;echo'>
                         <td>';echo $key[0]['lastname'];echo'</td>
                         <td>';echo $key[0]['firstname'];echo'</td>
@@ -832,7 +842,7 @@ for ($i=0; $i < count($kaikkiData); $i++) {
                         <td>';echo $role ;echo'</td>
                         <td>';echo $key[1]['goals'];echo'</td>
                         <td>';echo $key[1]['assists'];echo'</td>
-                        <td>';echo $key[1]['plus'] - $key[1]['minus'];echo'</td>
+                        <td>';echo $LPPPlus - $LPPminus;echo'</td>
                         <td>';echo $key[1]['penaltyminutes'];echo'</td>
                         <td>';echo $key[1]['blocks'];echo'</td>
                         <td>';echo $key[1]['shots'];echo'</td>
