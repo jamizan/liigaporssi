@@ -24,7 +24,7 @@ function matchNumbers(){
             $dateOnly = explode("T", $aAika)[0];
             
            // $todayDate = date("Y-m-d"); // TÄMÄ KÄYTTÖÖN OIKEASTI
-            $todayDate = '2024-12-04'; // TÄMÄ VAIN DEV KÄYTÖSSÄ
+            $todayDate = '2025-01-10'; // TÄMÄ VAIN DEV KÄYTÖSSÄ
 
             if ($dateOnly == $todayDate) {
 
@@ -225,6 +225,10 @@ function matchData($data){
 
     return $playerData;
 
+}
+
+function extraGameData(){
+    $gameData = matchNumbers();
 }
 
 function readJSON() {
@@ -552,6 +556,89 @@ $jsonData = readJSON();
                     
 <?php
 
+function countLPP($position, $goals, $assists, $plus = null, $minus = null, $blocks = null, $shots = null, $penaltyminutes = null, $saves = null, $goalsAllowed = null){
+    if ($position == 'A') {
+        # pistelasku hyökkääjälle
+
+        $LPPGoals = $goals * 7;
+        $LPPAssists = $assists * 4;
+
+        if ($plus > 0) {
+            $LPPPlus = $plus * 2;
+        } else{
+            $LPPPlus = 0;
+        }
+        if ($minus >= 0){
+            $LPPminus = $minus;
+        } else{
+            $LPPminus = 0;
+        }
+
+        $LPPBlocks = $blocks;
+
+        if ($shots != 0) {
+            if ($shots % 2 == 0) {
+                $LPPShots = $shots / 2;
+            } else {
+                $LPPShots = ($shots / 2) + 0.5;
+            }
+        } else{
+            $LPPShots = $shots;
+        }
+
+
+    } else if ($position == 'D') {
+        # pistelasku puolustajalle
+        
+        $LPPGoals = $goals * 9;
+        $LPPAssists = $assists * 6;
+
+        if ($plus > 0) {
+            $LPPPlus = $plus * 3;
+        } else{
+            $LPPPlus = 0;
+        }
+        if ($minus >= 0){
+            $LPPminus = $minus * 2;
+        } else{
+            $LPPminus = 0;
+        }
+
+        $LPPBlocks = $blocks;
+
+        if ($shots != 0) {
+            if ($shots % 2 == 0) {
+                $LPPShots = $shots / 2;
+            } else {
+                $LPPShots = ($shots / 2) + 0.5;
+            }
+        } else{
+            $LPPShots = $shots;
+        }
+
+        
+    } else if ($position == 'G') {
+        # pistelasku maalivahdille
+        /* 
+        Maalit
+        Syötöt
+        Päästetyt maalit
+        Jäähyt
+        torjunnat
+        LPP
+        
+        
+        
+        */
+
+
+
+    } else {
+        return;
+    }
+}
+
+
 
 for ($i=0; $i < count($kaikkiData); $i++) { 
     $playerData = matchData($kaikkiData[$i]);
@@ -571,8 +658,11 @@ for ($i=0; $i < count($kaikkiData); $i++) {
             $minus = $key[1]['minus'];
             $blocks = $key[1]['blocks'];
             $shots = $key[1]['shots'];
-
+            $penaltyminutes = $key[1]['penaltyminutes'];
             $role = 'A';
+
+           // countLPP($role, $goals, $assists, $plus, $minus, $blocks, $shots, $penaltyminutes);
+
             $LPPGoals = $goals * 7;
             $LPPAssists = $assists * 4;
 
