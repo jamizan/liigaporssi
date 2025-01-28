@@ -1,4 +1,13 @@
 {
+    "22918316": {
+        "teamid": "495643563:kärpät",
+        "teamname": "Kärpät",
+        "firstname": "VILLE",
+        "lastname": "POKKA",
+        "role": "LEFT_DEFENSEMAN",
+        "jersey": 2,
+        "playerid": 22918316
+    },
     "22037116": {
         "teamid": "495643563:kärpät",
         "teamname": "Kärpät",
@@ -63,12 +72,12 @@
         "playerid": 32915134
     },
     "31886905": {
-        "teamid": "495643563:kärpät",
-        "teamname": "Kärpät",
+        "teamid": "651304385:tps",
+        "teamname": "TPS",
         "firstname": "SISU",
         "lastname": "YLINIEMI",
-        "role": "CENTER",
-        "jersey": 19,
+        "role": "RIGHT_WING",
+        "jersey": 0,
         "playerid": 31886905
     },
     "33641009": {
@@ -125,6 +134,15 @@
         "jersey": 31,
         "playerid": 40115271
     },
+    "30131813": {
+        "teamid": "495643563:kärpät",
+        "teamname": "Kärpät",
+        "firstname": "ALEX",
+        "lastname": "MÄKELÄ",
+        "role": "GOALIE",
+        "jersey": 32,
+        "playerid": 30131813
+    },
     "21919594": {
         "teamid": "495643563:kärpät",
         "teamname": "Kärpät",
@@ -142,6 +160,15 @@
         "role": "CENTER",
         "jersey": 37,
         "playerid": 60863292
+    },
+    "34528794": {
+        "teamid": "495643563:kärpät",
+        "teamname": "Kärpät",
+        "firstname": "AARNO",
+        "lastname": "ERHOLTZ",
+        "role": "LEFT_WING",
+        "jersey": 38,
+        "playerid": 34528794
     },
     "33250393": {
         "teamid": "495643563:kärpät",
@@ -196,15 +223,6 @@
         "role": "LEFT_WING",
         "jersey": 59,
         "playerid": 24406130
-    },
-    "23775707": {
-        "teamid": "495643563:kärpät",
-        "teamname": "Kärpät",
-        "firstname": "JOEL",
-        "lastname": "OLKKONEN",
-        "role": "RIGHT_DEFENSEMAN",
-        "jersey": 62,
-        "playerid": 23775707
     },
     "60747516": {
         "teamid": "495643563:kärpät",
@@ -268,6 +286,15 @@
         "role": "LEFT_DEFENSEMAN",
         "jersey": 97,
         "playerid": 60579549
+    },
+    "60860206": {
+        "teamid": "933686567:saipa",
+        "teamname": "SaiPa",
+        "firstname": "MATYAS",
+        "lastname": "MARIK",
+        "role": "GOALIE",
+        "jersey": 2,
+        "playerid": 60860206
     },
     "40005621": {
         "teamid": "933686567:saipa",
@@ -422,15 +449,6 @@
         "jersey": 38,
         "playerid": 60760815
     },
-    "29923595": {
-        "teamid": "933686567:saipa",
-        "teamname": "SaiPa",
-        "firstname": "FILIP",
-        "lastname": "LINDBERG",
-        "role": "GOALIE",
-        "jersey": 39,
-        "playerid": 29923595
-    },
     "22148966": {
         "teamid": "933686567:saipa",
         "teamname": "SaiPa",
@@ -548,6 +566,15 @@
         "jersey": 81,
         "playerid": 32555154
     },
+    "30712591": {
+        "teamid": "933686567:saipa",
+        "teamname": "SaiPa",
+        "firstname": "HENRI",
+        "lastname": "NIKKANEN",
+        "role": "CENTER",
+        "jersey": 82,
+        "playerid": 30712591
+    },
     "32469910": {
         "teamid": "933686567:saipa",
         "teamname": "SaiPa",
@@ -656,6 +683,15 @@
         "jersey": 23,
         "playerid": 40087955
     },
+    "40078944": {
+        "teamid": "679171680:ässät",
+        "teamname": "Ässät",
+        "firstname": "EELI",
+        "lastname": "ÄIJÄLÄ",
+        "role": "CENTER",
+        "jersey": 24,
+        "playerid": 40078944
+    },
     "40200601": {
         "teamid": "679171680:ässät",
         "teamname": "Ässät",
@@ -675,12 +711,12 @@
         "playerid": 24962616
     },
     "33392484": {
-        "teamid": "651304385:tps",
-        "teamname": "TPS",
+        "teamid": "679171680:ässät",
+        "teamname": "Ässät",
         "firstname": "VERNERI",
         "lastname": "HELLMAN",
         "role": "LEFT_DEFENSEMAN",
-        "jersey": 0,
+        "jersey": 28,
         "playerid": 33392484
     },
     "33670096": {
@@ -702,12 +738,12 @@
         "playerid": 40210696
     },
     "23786437": {
-        "teamid": "679171680:ässät",
-        "teamname": "Ässät",
+        "teamid": "624554857:lukko",
+        "teamname": "Lukko",
         "firstname": "JONI",
         "lastname": "ORTIO",
         "role": "GOALIE",
-        "jersey": 31,
+        "jersey": 37,
         "playerid": 23786437
     },
     "22800958": {
@@ -971,6 +1007,15 @@
         "jersey": 21,
         "playerid": 33456650
     },
+    "60464071": {
+        "teamid": "859884935:kalpa",
+        "teamname": "KalPa",
+        "firstname": "SAMUEL",
+        "lastname": "TIMONEN",
+        "role": "CENTER",
+        "jersey": 22,
+        "playerid": 60464071
+    },
     "21403877": {
         "teamid": "859884935:kalpa",
         "teamname": "KalPa",
@@ -1016,6 +1061,15 @@
         "jersey": 29,
         "playerid": 30832947
     },
+    "40252781": {
+        "teamid": "859884935:kalpa",
+        "teamname": "KalPa",
+        "firstname": "PATRIK",
+        "lastname": "KERKOLA",
+        "role": "GOALIE",
+        "jersey": 31,
+        "playerid": 40252781
+    },
     "34264401": {
         "teamid": "859884935:kalpa",
         "teamname": "KalPa",
@@ -1024,6 +1078,15 @@
         "role": "GOALIE",
         "jersey": 32,
         "playerid": 34264401
+    },
+    "32555031": {
+        "teamid": "859884935:kalpa",
+        "teamname": "KalPa",
+        "firstname": "OTTO",
+        "lastname": "MYKRÄ",
+        "role": "LEFT_WING",
+        "jersey": 39,
+        "playerid": 32555031
     },
     "60760868": {
         "teamid": "859884935:kalpa",
@@ -1106,15 +1169,6 @@
         "jersey": 97,
         "playerid": 60866738
     },
-    "60578087": {
-        "teamid": "859884935:kalpa",
-        "teamname": "KalPa",
-        "firstname": "OLIVER",
-        "lastname": "LARSEN",
-        "role": "RIGHT_DEFENSEMAN",
-        "jersey": 98,
-        "playerid": 60578087
-    },
     "40132448": {
         "teamid": "362185137:tappara",
         "teamname": "Tappara",
@@ -1159,6 +1213,15 @@
         "role": "CENTER",
         "jersey": 11,
         "playerid": 29969041
+    },
+    "60911968": {
+        "teamid": "362185137:tappara",
+        "teamname": "Tappara",
+        "firstname": "JONATHAN",
+        "lastname": "ANDERSSON",
+        "role": "LEFT_DEFENSEMAN",
+        "jersey": 15,
+        "playerid": 60911968
     },
     "60580854": {
         "teamid": "362185137:tappara",
@@ -1222,6 +1285,15 @@
         "role": "LEFT_DEFENSEMAN",
         "jersey": 24,
         "playerid": 23334106
+    },
+    "40107607": {
+        "teamid": "362185137:tappara",
+        "teamname": "Tappara",
+        "firstname": "NIKLAS",
+        "lastname": "PUISTOLA",
+        "role": "LEFT_DEFENSEMAN",
+        "jersey": 26,
+        "playerid": 40107607
     },
     "31854445": {
         "teamid": "362185137:tappara",
@@ -1339,6 +1411,15 @@
         "role": "RIGHT_DEFENSEMAN",
         "jersey": 63,
         "playerid": 23517198
+    },
+    "40079819": {
+        "teamid": "362185137:tappara",
+        "teamname": "Tappara",
+        "firstname": "TIMI",
+        "lastname": "TEUHO-MARKKOLA",
+        "role": "RIGHT_WING",
+        "jersey": 64,
+        "playerid": 40079819
     },
     "60898910": {
         "teamid": "362185137:tappara",
@@ -1574,6 +1655,15 @@
         "jersey": 43,
         "playerid": 30730803
     },
+    "34601572": {
+        "teamid": "461765763:kookoo",
+        "teamname": "KooKoo",
+        "firstname": "JIRI",
+        "lastname": "PÄRSSINEN",
+        "role": "RIGHT_DEFENSEMAN",
+        "jersey": 44,
+        "playerid": 34601572
+    },
     "60361530": {
         "teamid": "461765763:kookoo",
         "teamname": "KooKoo",
@@ -1584,12 +1674,12 @@
         "playerid": 60361530
     },
     "60702311": {
-        "teamid": "951626834:ilves",
-        "teamname": "Ilves",
+        "teamid": "461765763:kookoo",
+        "teamname": "KooKoo",
         "firstname": "CHRISTIAN",
         "lastname": "KÅSASTUL",
         "role": "LEFT_DEFENSEMAN",
-        "jersey": 22,
+        "jersey": 48,
         "playerid": 60702311
     },
     "60800654": {
@@ -1664,6 +1754,15 @@
         "jersey": 2,
         "playerid": 22937737
     },
+    "32634347": {
+        "teamid": "219244634:jyp",
+        "teamname": "JYP",
+        "firstname": "JOONA",
+        "lastname": "LEHMUS",
+        "role": "LEFT_DEFENSEMAN",
+        "jersey": 3,
+        "playerid": 32634347
+    },
     "100034557": {
         "teamid": "219244634:jyp",
         "teamname": "JYP",
@@ -1737,12 +1836,12 @@
         "playerid": 30434484
     },
     "60619008": {
-        "teamid": "219244634:jyp",
-        "teamname": "JYP",
+        "teamid": "292293444:jukurit",
+        "teamname": "Jukurit",
         "firstname": "MIKS",
         "lastname": "TUMANOVS",
-        "role": "RIGHT_DEFENSEMAN",
-        "jersey": 16,
+        "role": "LEFT_DEFENSEMAN",
+        "jersey": 15,
         "playerid": 60619008
     },
     "24064653": {
@@ -1762,15 +1861,6 @@
         "role": "RIGHT_DEFENSEMAN",
         "jersey": 18,
         "playerid": 34394517
-    },
-    "40233496": {
-        "teamid": "219244634:jyp",
-        "teamname": "JYP",
-        "firstname": "OSSI-VEIKKA",
-        "lastname": "VUONTISVAARA",
-        "role": "RIGHT_DEFENSEMAN",
-        "jersey": 21,
-        "playerid": 40233496
     },
     "60851705": {
         "teamid": "219244634:jyp",
@@ -1826,15 +1916,6 @@
         "jersey": 31,
         "playerid": 29914070
     },
-    "31635062": {
-        "teamid": "219244634:jyp",
-        "teamname": "JYP",
-        "firstname": "OSKARI",
-        "lastname": "SALMINEN",
-        "role": "GOALIE",
-        "jersey": 33,
-        "playerid": 31635062
-    },
     "40115754": {
         "teamid": "219244634:jyp",
         "teamname": "JYP",
@@ -1844,32 +1925,14 @@
         "jersey": 33,
         "playerid": 40115754
     },
-    "60330620": {
+    "31635062": {
         "teamid": "219244634:jyp",
         "teamname": "JYP",
-        "firstname": "JUHO",
-        "lastname": "HELANDER",
-        "role": "GOALIE",
-        "jersey": 34,
-        "playerid": 60330620
-    },
-    "29924154": {
-        "teamid": "219244634:jyp",
-        "teamname": "JYP",
-        "firstname": "VEINI",
-        "lastname": "VEHVILÄINEN",
+        "firstname": "OSKARI",
+        "lastname": "SALMINEN",
         "role": "GOALIE",
         "jersey": 35,
-        "playerid": 29924154
-    },
-    "32393455": {
-        "teamid": "219244634:jyp",
-        "teamname": "JYP",
-        "firstname": "OTTO",
-        "lastname": "JAATINEN",
-        "role": "CENTER",
-        "jersey": 36,
-        "playerid": 32393455
+        "playerid": 31635062
     },
     "60662542": {
         "teamid": "219244634:jyp",
@@ -1898,6 +1961,15 @@
         "jersey": 39,
         "playerid": 30728763
     },
+    "60907490": {
+        "teamid": "219244634:jyp",
+        "teamname": "JYP",
+        "firstname": "DANIEL",
+        "lastname": "TORGERSSON",
+        "role": "LEFT_WING",
+        "jersey": 40,
+        "playerid": 60907490
+    },
     "40109235": {
         "teamid": "219244634:jyp",
         "teamname": "JYP",
@@ -1907,6 +1979,15 @@
         "jersey": 41,
         "playerid": 40109235
     },
+    "31145439": {
+        "teamid": "219244634:jyp",
+        "teamname": "JYP",
+        "firstname": "FAUSTAS",
+        "lastname": "NAUSEDA",
+        "role": "GOALIE",
+        "jersey": 41,
+        "playerid": 31145439
+    },
     "21415137": {
         "teamid": "219244634:jyp",
         "teamname": "JYP",
@@ -1915,6 +1996,15 @@
         "role": "LEFT_DEFENSEMAN",
         "jersey": 42,
         "playerid": 21415137
+    },
+    "32393455": {
+        "teamid": "219244634:jyp",
+        "teamname": "JYP",
+        "firstname": "OTTO",
+        "lastname": "JAATINEN",
+        "role": "CENTER",
+        "jersey": 43,
+        "playerid": 32393455
     },
     "40049925": {
         "teamid": "219244634:jyp",
@@ -2006,6 +2096,15 @@
         "jersey": 6,
         "playerid": 24223973
     },
+    "32924510": {
+        "teamid": "168761288:hifk",
+        "teamname": "HIFK",
+        "firstname": "PETTERI",
+        "lastname": "NURMI",
+        "role": "LEFT_DEFENSEMAN",
+        "jersey": 8,
+        "playerid": 32924510
+    },
     "29885743": {
         "teamid": "168761288:hifk",
         "teamname": "HIFK",
@@ -2023,6 +2122,24 @@
         "role": "LEFT_DEFENSEMAN",
         "jersey": 11,
         "playerid": 22549125
+    },
+    "21742871": {
+        "teamid": "168761288:hifk",
+        "teamname": "HIFK",
+        "firstname": "JUUSO",
+        "lastname": "IKONEN",
+        "role": "CENTER",
+        "jersey": 12,
+        "playerid": 21742871
+    },
+    "40117195": {
+        "teamid": "168761288:hifk",
+        "teamname": "HIFK",
+        "firstname": "VERNERI",
+        "lastname": "ARKKO",
+        "role": "LEFT_DEFENSEMAN",
+        "jersey": 13,
+        "playerid": 40117195
     },
     "22510552": {
         "teamid": "168761288:hifk",
@@ -2114,6 +2231,15 @@
         "jersey": 45,
         "playerid": 23793763
     },
+    "40213683": {
+        "teamid": "168761288:hifk",
+        "teamname": "HIFK",
+        "firstname": "JASPER",
+        "lastname": "KUHTA",
+        "role": "RIGHT_WING",
+        "jersey": 46,
+        "playerid": 40213683
+    },
     "22077464": {
         "teamid": "168761288:hifk",
         "teamname": "HIFK",
@@ -2122,6 +2248,15 @@
         "role": "LEFT_WING",
         "jersey": 47,
         "playerid": 22077464
+    },
+    "32253304": {
+        "teamid": "168761288:hifk",
+        "teamname": "HIFK",
+        "firstname": "VEETI",
+        "lastname": "KUHTA",
+        "role": "RIGHT_WING",
+        "jersey": 49,
+        "playerid": 32253304
     },
     "60764053": {
         "teamid": "168761288:hifk",
@@ -2132,6 +2267,24 @@
         "jersey": 50,
         "playerid": 60764053
     },
+    "27900714": {
+        "teamid": "168761288:hifk",
+        "teamname": "HIFK",
+        "firstname": "PETRUS",
+        "lastname": "PALMU",
+        "role": "LEFT_WING",
+        "jersey": 52,
+        "playerid": 27900714
+    },
+    "40118855": {
+        "teamid": "168761288:hifk",
+        "teamname": "HIFK",
+        "firstname": "JERE",
+        "lastname": "SOMERVUORI",
+        "role": "RIGHT_WING",
+        "jersey": 54,
+        "playerid": 40118855
+    },
     "34566808": {
         "teamid": "168761288:hifk",
         "teamname": "HIFK",
@@ -2140,6 +2293,15 @@
         "role": "RIGHT_WING",
         "jersey": 55,
         "playerid": 34566808
+    },
+    "31275121": {
+        "teamid": "168761288:hifk",
+        "teamname": "HIFK",
+        "firstname": "JULIUS",
+        "lastname": "JANHONEN",
+        "role": "CENTER",
+        "jersey": 57,
+        "playerid": 31275121
     },
     "21785090": {
         "teamid": "168761288:hifk",
@@ -2240,6 +2402,15 @@
         "jersey": 85,
         "playerid": 40068762
     },
+    "29061253": {
+        "teamid": "55786244:hpk",
+        "teamname": "HPK",
+        "firstname": "JOEL",
+        "lastname": "KERKKÄNEN",
+        "role": "RIGHT_WING",
+        "jersey": 0,
+        "playerid": 29061253
+    },
     "23017821": {
         "teamid": "168761288:hifk",
         "teamname": "HIFK",
@@ -2267,6 +2438,15 @@
         "jersey": 92,
         "playerid": 24390673
     },
+    "60578087": {
+        "teamid": "168761288:hifk",
+        "teamname": "HIFK",
+        "firstname": "OLIVER",
+        "lastname": "LARSEN",
+        "role": "RIGHT_DEFENSEMAN",
+        "jersey": 98,
+        "playerid": 60578087
+    },
     "23837234": {
         "teamid": "951626834:ilves",
         "teamname": "Ilves",
@@ -2284,6 +2464,15 @@
         "role": "LEFT_DEFENSEMAN",
         "jersey": 6,
         "playerid": 40032907
+    },
+    "40320020": {
+        "teamid": "951626834:ilves",
+        "teamname": "Ilves",
+        "firstname": "OSSI",
+        "lastname": "TUKIO",
+        "role": "LEFT_DEFENSEMAN",
+        "jersey": 8,
+        "playerid": 40320020
     },
     "23351053": {
         "teamid": "951626834:ilves",
@@ -2339,6 +2528,15 @@
         "jersey": 18,
         "playerid": 26590031
     },
+    "60826215": {
+        "teamid": "951626834:ilves",
+        "teamname": "Ilves",
+        "firstname": "MIKE",
+        "lastname": "O'LEARY",
+        "role": "CENTER",
+        "jersey": 19,
+        "playerid": 60826215
+    },
     "29783858": {
         "teamid": "951626834:ilves",
         "teamname": "Ilves",
@@ -2374,6 +2572,15 @@
         "role": "LEFT_WING",
         "jersey": 27,
         "playerid": 33447724
+    },
+    "60905049": {
+        "teamid": "951626834:ilves",
+        "teamname": "Ilves",
+        "firstname": "JOHN",
+        "lastname": "NYBERG",
+        "role": "LEFT_DEFENSEMAN",
+        "jersey": 28,
+        "playerid": 60905049
     },
     "60658794": {
         "teamid": "951626834:ilves",
@@ -2573,15 +2780,6 @@
         "jersey": 7,
         "playerid": 60866832
     },
-    "60544388": {
-        "teamid": "875886777:pelicans",
-        "teamname": "Pelicans",
-        "firstname": "LIBOR",
-        "lastname": "ZABRANSKY",
-        "role": "RIGHT_DEFENSEMAN",
-        "jersey": 8,
-        "playerid": 60544388
-    },
     "60498506": {
         "teamid": "875886777:pelicans",
         "teamname": "Pelicans",
@@ -2653,6 +2851,15 @@
         "role": "GOALIE",
         "jersey": 30,
         "playerid": 60860181
+    },
+    "60462059": {
+        "teamid": "875886777:pelicans",
+        "teamname": "Pelicans",
+        "firstname": "PATRIK",
+        "lastname": "BARTOSAK",
+        "role": "GOALIE",
+        "jersey": 32,
+        "playerid": 60462059
     },
     "40067696": {
         "teamid": "875886777:pelicans",
@@ -2771,6 +2978,15 @@
         "jersey": 72,
         "playerid": 100026105
     },
+    "60904682": {
+        "teamid": "875886777:pelicans",
+        "teamname": "Pelicans",
+        "firstname": "HAMPUS",
+        "lastname": "FALK",
+        "role": "LEFT_DEFENSEMAN",
+        "jersey": 78,
+        "playerid": 60904682
+    },
     "40057004": {
         "teamid": "875886777:pelicans",
         "teamname": "Pelicans",
@@ -2816,14 +3032,23 @@
         "jersey": 92,
         "playerid": 29635278
     },
-    "60859863": {
-        "teamid": "626537494:sport",
-        "teamname": "Sport",
-        "firstname": "PAUL",
-        "lastname": "MOTTARD",
+    "40036871": {
+        "teamid": "875886777:pelicans",
+        "teamname": "Pelicans",
+        "firstname": "AARO",
+        "lastname": "CHRONS",
+        "role": "LEFT_WING",
+        "jersey": 92,
+        "playerid": 40036871
+    },
+    "60912362": {
+        "teamid": "875886777:pelicans",
+        "teamname": "Pelicans",
+        "firstname": "JOSH",
+        "lastname": "LAWRENCE",
         "role": "CENTER",
-        "jersey": 0,
-        "playerid": 60859863
+        "jersey": 92,
+        "playerid": 60912362
     },
     "40056206": {
         "teamid": "626537494:sport",
@@ -2860,6 +3085,24 @@
         "role": "LEFT_DEFENSEMAN",
         "jersey": 6,
         "playerid": 21926286
+    },
+    "32681170": {
+        "teamid": "626537494:sport",
+        "teamname": "Sport",
+        "firstname": "HANNES",
+        "lastname": "HÄKKILÄ",
+        "role": "RIGHT_DEFENSEMAN",
+        "jersey": 7,
+        "playerid": 32681170
+    },
+    "33510428": {
+        "teamid": "626537494:sport",
+        "teamname": "Sport",
+        "firstname": "OKKO",
+        "lastname": "KANGASNIEMI",
+        "role": "LEFT_WING",
+        "jersey": 10,
+        "playerid": 33510428
     },
     "60658804": {
         "teamid": "626537494:sport",
@@ -2942,6 +3185,15 @@
         "jersey": 28,
         "playerid": 60744055
     },
+    "31006060": {
+        "teamid": "626537494:sport",
+        "teamname": "Sport",
+        "firstname": "DANIEL",
+        "lastname": "LEBEDEFF",
+        "role": "GOALIE",
+        "jersey": 35,
+        "playerid": 31006060
+    },
     "28890904": {
         "teamid": "626537494:sport",
         "teamname": "Sport",
@@ -2969,14 +3221,14 @@
         "jersey": 40,
         "playerid": 60744062
     },
-    "32681170": {
+    "40130177": {
         "teamid": "626537494:sport",
         "teamname": "Sport",
-        "firstname": "HANNES",
-        "lastname": "HÄKKILÄ",
-        "role": "RIGHT_DEFENSEMAN",
-        "jersey": 49,
-        "playerid": 32681170
+        "firstname": "EETU",
+        "lastname": "KOIVUNEN",
+        "role": "LEFT_DEFENSEMAN",
+        "jersey": 44,
+        "playerid": 40130177
     },
     "24421720": {
         "teamid": "626537494:sport",
@@ -3067,15 +3319,6 @@
         "role": "CENTER",
         "jersey": 80,
         "playerid": 60744050
-    },
-    "29061253": {
-        "teamid": "626537494:sport",
-        "teamname": "Sport",
-        "firstname": "JOEL",
-        "lastname": "KERKKÄNEN",
-        "role": "LEFT_WING",
-        "jersey": 86,
-        "playerid": 29061253
     },
     "60651941": {
         "teamid": "626537494:sport",
@@ -3176,14 +3419,14 @@
         "jersey": 18,
         "playerid": 33401427
     },
-    "60860216": {
+    "60910574": {
         "teamid": "292293444:jukurit",
         "teamname": "Jukurit",
-        "firstname": "ISAAC",
-        "lastname": "JOHNSON",
-        "role": "RIGHT_WING",
+        "firstname": "TIM",
+        "lastname": "LOVELL",
+        "role": "LEFT_DEFENSEMAN",
         "jersey": 23,
-        "playerid": 60860216
+        "playerid": 60910574
     },
     "60777225": {
         "teamid": "292293444:jukurit",
@@ -3302,6 +3545,15 @@
         "jersey": 76,
         "playerid": 29658365
     },
+    "60905351": {
+        "teamid": "292293444:jukurit",
+        "teamname": "Jukurit",
+        "firstname": "BRAYDEN",
+        "lastname": "TRACEY",
+        "role": "LEFT_WING",
+        "jersey": 77,
+        "playerid": 60905351
+    },
     "25663901": {
         "teamid": "292293444:jukurit",
         "teamname": "Jukurit",
@@ -3319,6 +3571,24 @@
         "role": "LEFT_WING",
         "jersey": 85,
         "playerid": 60769153
+    },
+    "60352766": {
+        "teamid": "292293444:jukurit",
+        "teamname": "Jukurit",
+        "firstname": "BENCE",
+        "lastname": "HORVATH",
+        "role": "LEFT_WING",
+        "jersey": 93,
+        "playerid": 60352766
+    },
+    "40069442": {
+        "teamid": "292293444:jukurit",
+        "teamname": "Jukurit",
+        "firstname": "JIRO",
+        "lastname": "FRILANDER",
+        "role": "RIGHT_WING",
+        "jersey": 96,
+        "playerid": 40069442
     },
     "60872148": {
         "teamid": "292293444:jukurit",
@@ -3374,6 +3644,15 @@
         "jersey": 5,
         "playerid": 60659010
     },
+    "60908916": {
+        "teamid": "55786244:hpk",
+        "teamname": "HPK",
+        "firstname": "DAVID",
+        "lastname": "NOEL",
+        "role": "RIGHT_DEFENSEMAN",
+        "jersey": 6,
+        "playerid": 60908916
+    },
     "33254027": {
         "teamid": "55786244:hpk",
         "teamname": "HPK",
@@ -3419,15 +3698,6 @@
         "jersey": 17,
         "playerid": 24383567
     },
-    "33454652": {
-        "teamid": "55786244:hpk",
-        "teamname": "HPK",
-        "firstname": "VALTTERI",
-        "lastname": "SAVOLAINEN",
-        "role": "LEFT_WING",
-        "jersey": 18,
-        "playerid": 33454652
-    },
     "23029644": {
         "teamid": "55786244:hpk",
         "teamname": "HPK",
@@ -3437,6 +3707,15 @@
         "jersey": 19,
         "playerid": 23029644
     },
+    "60763948": {
+        "teamid": "55786244:hpk",
+        "teamname": "HPK",
+        "firstname": "ANRI",
+        "lastname": "RAVINSKIS",
+        "role": "LEFT_WING",
+        "jersey": 23,
+        "playerid": 60763948
+    },
     "30851669": {
         "teamid": "55786244:hpk",
         "teamname": "HPK",
@@ -3445,6 +3724,15 @@
         "role": "LEFT_WING",
         "jersey": 25,
         "playerid": 30851669
+    },
+    "40004723": {
+        "teamid": "55786244:hpk",
+        "teamname": "HPK",
+        "firstname": "ALEKSI",
+        "lastname": "SINKKONEN",
+        "role": "RIGHT_WING",
+        "jersey": 28,
+        "playerid": 40004723
     },
     "23097498": {
         "teamid": "55786244:hpk",
@@ -3464,6 +3752,15 @@
         "jersey": 30,
         "playerid": 22993098
     },
+    "29923595": {
+        "teamid": "55786244:hpk",
+        "teamname": "HPK",
+        "firstname": "FILIP",
+        "lastname": "LINDBERG",
+        "role": "GOALIE",
+        "jersey": 31,
+        "playerid": 29923595
+    },
     "24459695": {
         "teamid": "55786244:hpk",
         "teamname": "HPK",
@@ -3481,15 +3778,6 @@
         "role": "LEFT_DEFENSEMAN",
         "jersey": 38,
         "playerid": 40129460
-    },
-    "32924510": {
-        "teamid": "55786244:hpk",
-        "teamname": "HPK",
-        "firstname": "PETTERI",
-        "lastname": "NURMI",
-        "role": "LEFT_DEFENSEMAN",
-        "jersey": 40,
-        "playerid": 32924510
     },
     "25589140": {
         "teamid": "55786244:hpk",
@@ -3527,15 +3815,6 @@
         "jersey": 44,
         "playerid": 40039427
     },
-    "40004723": {
-        "teamid": "55786244:hpk",
-        "teamname": "HPK",
-        "firstname": "ALEKSI",
-        "lastname": "SINKKONEN",
-        "role": "RIGHT_WING",
-        "jersey": 50,
-        "playerid": 40004723
-    },
     "32919839": {
         "teamid": "55786244:hpk",
         "teamname": "HPK",
@@ -3545,14 +3824,14 @@
         "jersey": 50,
         "playerid": 32919839
     },
-    "60556807": {
+    "60907293": {
         "teamid": "55786244:hpk",
         "teamname": "HPK",
-        "firstname": "ADAM",
-        "lastname": "BRODECKI",
-        "role": "LEFT_WING",
-        "jersey": 68,
-        "playerid": 60556807
+        "firstname": "RONALDS",
+        "lastname": "KENINS",
+        "role": "RIGHT_WING",
+        "jersey": 70,
+        "playerid": 60907293
     },
     "40046437": {
         "teamid": "55786244:hpk",
@@ -3779,15 +4058,6 @@
         "jersey": 48,
         "playerid": 24466028
     },
-    "32764000": {
-        "teamid": "624554857:lukko",
-        "teamname": "Lukko",
-        "firstname": "ONNI",
-        "lastname": "KORKKA",
-        "role": "LEFT_DEFENSEMAN",
-        "jersey": 51,
-        "playerid": 32764000
-    },
     "60794693": {
         "teamid": "624554857:lukko",
         "teamname": "Lukko",
@@ -3797,15 +4067,6 @@
         "jersey": 56,
         "playerid": 60794693
     },
-    "31006060": {
-        "teamid": "624554857:lukko",
-        "teamname": "Lukko",
-        "firstname": "DANIEL",
-        "lastname": "LEBEDEFF",
-        "role": "GOALIE",
-        "jersey": 60,
-        "playerid": 31006060
-    },
     "21870028": {
         "teamid": "624554857:lukko",
         "teamname": "Lukko",
@@ -3814,15 +4075,6 @@
         "role": "CENTER",
         "jersey": 64,
         "playerid": 21870028
-    },
-    "31539993": {
-        "teamid": "624554857:lukko",
-        "teamname": "Lukko",
-        "firstname": "KALLE",
-        "lastname": "ERVASTI",
-        "role": "RIGHT_DEFENSEMAN",
-        "jersey": 71,
-        "playerid": 31539993
     },
     "60859897": {
         "teamid": "624554857:lukko",
@@ -3869,15 +4121,6 @@
         "jersey": 92,
         "playerid": 25139587
     },
-    "40142865": {
-        "teamid": "651304385:tps",
-        "teamname": "TPS",
-        "firstname": "JESSE",
-        "lastname": "VUORELA",
-        "role": "RIGHT_DEFENSEMAN",
-        "jersey": 0,
-        "playerid": 40142865
-    },
     "60219997": {
         "teamid": "651304385:tps",
         "teamname": "TPS",
@@ -3895,6 +4138,15 @@
         "role": "RIGHT_DEFENSEMAN",
         "jersey": 4,
         "playerid": 40048503
+    },
+    "60912491": {
+        "teamid": "651304385:tps",
+        "teamname": "TPS",
+        "firstname": "LEO",
+        "lastname": "SAHLIN WALLENIUS",
+        "role": "LEFT_DEFENSEMAN",
+        "jersey": 6,
+        "playerid": 60912491
     },
     "60757491": {
         "teamid": "651304385:tps",
@@ -3923,15 +4175,6 @@
         "jersey": 17,
         "playerid": 30639603
     },
-    "40130177": {
-        "teamid": "651304385:tps",
-        "teamname": "TPS",
-        "firstname": "EETU",
-        "lastname": "KOIVUNEN",
-        "role": "LEFT_DEFENSEMAN",
-        "jersey": 19,
-        "playerid": 40130177
-    },
     "31633679": {
         "teamid": "651304385:tps",
         "teamname": "TPS",
@@ -3959,6 +4202,15 @@
         "jersey": 27,
         "playerid": 60760867
     },
+    "40142865": {
+        "teamid": "651304385:tps",
+        "teamname": "TPS",
+        "firstname": "JESSE",
+        "lastname": "VUORELA",
+        "role": "RIGHT_DEFENSEMAN",
+        "jersey": 29,
+        "playerid": 40142865
+    },
     "60855658": {
         "teamid": "651304385:tps",
         "teamname": "TPS",
@@ -3985,6 +4237,15 @@
         "role": "RIGHT_DEFENSEMAN",
         "jersey": 33,
         "playerid": 33189367
+    },
+    "29924154": {
+        "teamid": "651304385:tps",
+        "teamname": "TPS",
+        "firstname": "VEINI",
+        "lastname": "VEHVILÄINEN",
+        "role": "GOALIE",
+        "jersey": 35,
+        "playerid": 29924154
     },
     "40005133": {
         "teamid": "651304385:tps",
@@ -4021,15 +4282,6 @@
         "role": "RIGHT_WING",
         "jersey": 49,
         "playerid": 60799830
-    },
-    "27900714": {
-        "teamid": "651304385:tps",
-        "teamname": "TPS",
-        "firstname": "PETRUS",
-        "lastname": "PALMU",
-        "role": "LEFT_WING",
-        "jersey": 52,
-        "playerid": 27900714
     },
     "34100992": {
         "teamid": "651304385:tps",
@@ -4154,7 +4406,7 @@
         "firstname": "ALEKSI",
         "lastname": "KARJALAINEN",
         "role": "GOALIE",
-        "jersey": 0,
+        "jersey": 1,
         "playerid": 40067163
     },
     "27841653": {
@@ -4291,6 +4543,15 @@
         "role": "LEFT_DEFENSEMAN",
         "jersey": 34,
         "playerid": 22240990
+    },
+    "32637771": {
+        "teamid": "1368624751:k-espoo",
+        "teamname": "K-Espoo",
+        "firstname": "EMIL",
+        "lastname": "VUORIO",
+        "role": "GOALIE",
+        "jersey": 37,
+        "playerid": 32637771
     },
     "23165838": {
         "teamid": "1368624751:k-espoo",
