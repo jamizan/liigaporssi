@@ -1,7 +1,9 @@
 import requests
 import json
 
-url = 'https://www.liiga.fi/api/v2/players/info?tournament=runkosarja&season=2025'
+#url = 'https://www.liiga.fi/api/v2/players/info?tournament=runkosarja&season=2025'
+url = 'https://www.liiga.fi/api/v2/players/info?tournament=runkosarja&fromSeason=2025&toSeason=2025'
+
 
 response = requests.get(url)
 
@@ -21,7 +23,6 @@ if response.status_code == 200:
         role = data[i]['role']
         jersey = data[i]['jersey']
 
-
         players_dict[playerid] = {
             'teamid' : playerTeamId,
             'teamname' : playerTeamName,
@@ -30,25 +31,18 @@ if response.status_code == 200:
             'role' : role,
             'jersey' : jersey,
             'playerid' : playerid
-
         }
 
         playerData.append([playerid, playerTeamId, playerTeamName, firstName, lastName, role, jersey])
 
-
         i += 1
-
-  #  print(playerData)
 
     with open('playerData.json', 'w', encoding='utf-8') as json_file:
         json.dump(players_dict, json_file, ensure_ascii=False, indent=4)
 
     print('file created!')
 
- #   print(players_dict)
-
-
 else:
-    print('asdklj')
+    print('Status code != 200')
 
     

@@ -1,41 +1,28 @@
-from bs4 import BeautifulSoup
-import requests
-import sys
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
-import time
-from selenium.webdriver.common.by import By
-from selenium.webdriver import ActionChains
+aloitusbalanssi = 12
+edellinenraja = 1
+x = 1
+LPP = 1
+random = 0
 
-def find_porssi_teams():
-    print('hello world')
+if aloitusbalanssi < 0:
+    aloitusbalanssi = aloitusbalanssi * -1
+    random = -1
 
-    url = 'https://www.liiga.fi/fi/pelaajat?kausi=2024-25&sarja=runkosarja'
-    driver = webdriver.Chrome()
-    driver.get(url)
+if aloitusbalanssi != 0:
+    if aloitusbalanssi > 0:
+        while x < aloitusbalanssi:
+            print(f'x = {x}, LPP = {LPP}')
+            if x == edellinenraja + 3:
+                LPP += 1
+                edellinenraja = x + 1
+                
 
-    time.sleep(3)
+            x += 1
 
-    cookies = driver.find_element(By.CLASS_NAME,'qc-cmp2-summary-buttons')
-    print(cookies)
-    accept_button = cookies.find_element(By.CLASS_NAME,'css-47sehv')
-    
-    ActionChains(driver).click(accept_button).perform()
-    time.sleep(3)
-    html = driver.page_source
-    
+    if random < 0:
+        LPP = LPP * -1
 
-    soup = BeautifulSoup(html, 'html.parser')
+else:
+    LPP = 0
 
-    table = soup.find('div', class_='_tableContainer_1a9ud_170 _sairaSemiCondensed_1a9ud_5 _fontSize15_1a9ud_84 _shadowRight_1a9ud_141')
-    print(table)
-   # print(soup)
-
-    driver.close()
-def main():
-    find_porssi_teams()
-
-if __name__ == '__main__':
-    main()
+print(f'LPP = {LPP}')

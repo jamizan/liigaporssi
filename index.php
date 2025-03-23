@@ -57,7 +57,7 @@ function matchNumbers(){
 function parseData(){
     $gameData = matchNumbers();
 
-    $kaikkiData = [];
+    $kaikkData = [];
 
     for ($i=0; $i < count($gameData); $i++) { 
 
