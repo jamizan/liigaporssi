@@ -11,7 +11,7 @@ function matchNumbers(){
     $gameData = [];
     $x = 0;
 
-    $url = "https://www.liiga.fi/api/v2/games?tournament=runkosarja&season=2025";
+    $url = "https://www.liiga.fi/api/v2/games?tournament=playoffs&season=2025";
     $json = shell_exec("curl -s " . escapeshellarg($url));
 
     if ($json === false) {
